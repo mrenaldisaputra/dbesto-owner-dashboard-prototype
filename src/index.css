@@ -1,15 +1,224 @@
 @import "tailwindcss";
 
+@theme {
+  --color-red-50: #fff1ec;
+  --color-red-200: #ffc1b4;
+  --color-red-500: #ed1c24;
+  --color-red-600: #d90416;
+  --color-red-700: #a9000b;
+
+  --color-amber-50: #fffbe6;
+  --color-amber-200: #ffef8a;
+  --color-amber-500: #ffdf00;
+  --color-amber-600: #f5a800;
+  --color-amber-700: #7b5200;
+
+  --color-blue-50: #fff8cf;
+  --color-blue-100: #ffef88;
+  --color-blue-200: #ffe45c;
+  --color-blue-400: #ed1c24;
+  --color-blue-700: #b70611;
+
+  --color-violet-50: #f5f0e5;
+  --color-violet-200: #d8cfbd;
+  --color-violet-700: #11100e;
+
+  --color-slate-50: #fffaf0;
+  --color-slate-100: #fff3d2;
+  --color-slate-200: #f1dfb1;
+  --color-slate-300: #d8cfbd;
+  --color-slate-400: #8d8376;
+  --color-slate-500: #756f67;
+  --color-slate-600: #554b43;
+  --color-slate-700: #332a24;
+  --color-slate-800: #201815;
+  --color-slate-900: #14100e;
+  --color-slate-950: #090807;
+}
+
 :root {
+  --dbesto-red: #ed1c24;
+  --dbesto-red-dark: #b70611;
+  --dbesto-red-deep: #7d0009;
+  --dbesto-yellow: #ffdf00;
+  --dbesto-yellow-deep: #f5a800;
+  --dbesto-black: #090807;
+  --dbesto-ink: #17110f;
+  --dbesto-white: #ffffff;
+  --dbesto-cream: #fff8df;
+  --dbesto-line: #f1dfb1;
+  --dbesto-muted: #756f67;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #0f172a;
-  background: #f1f5f9;
+  color: var(--dbesto-ink);
+  background: var(--dbesto-cream);
+  color-scheme: light;
+}
+
+html {
+  background: var(--dbesto-cream);
 }
 
 body {
   margin: 0;
+  min-width: 320px;
+  background: var(--dbesto-cream);
 }
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: var(--dbesto-yellow);
+  color: var(--dbesto-black);
+}
+
+.dbesto-app {
+  background:
+    radial-gradient(circle at top left, rgba(255, 223, 0, 0.28), transparent 28rem),
+    linear-gradient(180deg, #fff8df 0%, #fff3d2 18rem, #f8f1e3 100%);
+}
+
+.dbesto-sidebar {
+  border-color: rgba(255, 223, 0, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 223, 0, 0.08), transparent 18rem),
+    linear-gradient(180deg, var(--dbesto-black) 0%, #17100e 58%, #2a0609 100%);
+  box-shadow: inset -1px 0 0 rgba(255, 223, 0, 0.14);
+}
+
+.dbesto-sidebar-brand {
+  background: linear-gradient(180deg, rgba(237, 28, 36, 0.16), rgba(255, 223, 0, 0.05));
+}
+
+.dbesto-logo {
+  width: 12.5rem;
+  max-width: 100%;
+  max-height: 6rem;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.42));
+}
+
+.dbesto-mobile-logo {
+  width: 6.5rem;
+  max-width: 36vw;
+  max-height: 3.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(20, 16, 14, 0.2));
+}
+
+.dbesto-nav-active,
+.dbesto-mobile-tab-active {
+  color: var(--dbesto-black);
+  background: linear-gradient(135deg, var(--dbesto-yellow), var(--dbesto-yellow-deep));
+  box-shadow: 0 10px 20px rgba(245, 168, 0, 0.2), inset 0 0 0 1px rgba(9, 8, 7, 0.12);
+}
+
+.dbesto-nav-idle {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.dbesto-nav-idle:hover {
+  color: var(--dbesto-white);
+  background: rgba(255, 223, 0, 0.12);
+}
+
+.dbesto-mobile-nav,
+.dbesto-header {
+  border-color: rgba(237, 28, 36, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 28px rgba(125, 0, 9, 0.06);
+}
+
+.dbesto-mobile-tab-idle {
+  color: var(--dbesto-muted);
+  background: rgba(255, 243, 210, 0.9);
+}
+
+.dbesto-mobile-tab-idle:hover {
+  color: var(--dbesto-red-dark);
+  background: rgba(255, 223, 0, 0.24);
+}
+
+.dbesto-focus-card {
+  border: 1px solid rgba(255, 223, 0, 0.22);
+  background: rgba(255, 223, 0, 0.1);
+}
+
+.dbesto-count-badge {
+  background: linear-gradient(135deg, var(--dbesto-red), var(--dbesto-red-dark));
+  box-shadow: 0 8px 16px rgba(183, 6, 17, 0.28);
+}
+
+.dbesto-live-chip {
+  color: var(--dbesto-black);
+  background: rgba(255, 223, 0, 0.24);
+  box-shadow: 0 0 0 1px rgba(245, 168, 0, 0.34);
+}
+
+.dbesto-alert-button,
+.dbesto-btn-primary {
+  color: var(--dbesto-white);
+  background: linear-gradient(135deg, var(--dbesto-red), var(--dbesto-red-dark));
+  box-shadow: 0 10px 18px rgba(183, 6, 17, 0.18);
+}
+
+.dbesto-alert-button:hover,
+.dbesto-btn-primary:hover {
+  background: linear-gradient(135deg, #ff2831, var(--dbesto-red-dark));
+}
+
+.dbesto-btn-secondary {
+  color: var(--dbesto-ink);
+  background: var(--dbesto-white);
+  box-shadow: 0 0 0 1px var(--dbesto-line);
+}
+
+.dbesto-btn-secondary:hover {
+  background: #fff8df;
+}
+
+.dbesto-btn-danger {
+  color: var(--dbesto-white);
+  background: linear-gradient(135deg, var(--dbesto-black), var(--dbesto-red-dark));
+}
+
+.dbesto-btn-danger:hover {
+  background: linear-gradient(135deg, #241814, var(--dbesto-red));
+}
+
+.dbesto-btn-soft {
+  color: var(--dbesto-red-dark);
+  background: rgba(255, 223, 0, 0.22);
+}
+
+.dbesto-btn-soft:hover {
+  background: rgba(255, 223, 0, 0.34);
+}
+
+.dbesto-footer {
+  border-color: var(--dbesto-line);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.focus\:border-blue-400:focus {
+  border-color: var(--dbesto-red);
+  box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.14);
+}
+
+.hover\:bg-blue-50\/50:hover {
+  background-color: rgba(255, 223, 0, 0.18);
+}
+
+.recharts-default-tooltip {
+  border: 1px solid var(--dbesto-line) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 14px 30px rgba(23, 17, 15, 0.1) !important;
+}
+
+.recharts-cartesian-axis-tick-value,
+.recharts-legend-item-text {
+  fill: var(--dbesto-muted);
+  color: var(--dbesto-muted) !important;
 }

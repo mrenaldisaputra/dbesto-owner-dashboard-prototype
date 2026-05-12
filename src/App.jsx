@@ -15,6 +15,8 @@ import {
   YAxis,
 } from "recharts";
 
+const dbestoLogo = "/assets/logodbesto.png";
+
 /**
  * DBESTO Group Owner Dashboard Prototype
  * Stack: React + Tailwind CSS + Recharts
@@ -22,15 +24,28 @@ import {
  */
 
 const BRAND_COLORS = {
-  "d'besto chicken n burger": "#2563eb",
-  "d'chicken": "#16a34a",
-  "d'roasting": "#f97316",
-  "Lazatto chicken n burger": "#dc2626",
-  "d'Sruput": "#7c3aed",
-  "d'bakso": "#0891b2",
+  "d'besto chicken n burger": "#ed1c24",
+  "d'chicken": "#ffdf00",
+  "d'roasting": "#f5a800",
+  "Lazatto chicken n burger": "#b70611",
+  "d'Sruput": "#11100e",
+  "d'bakso": "#756f67",
 };
 
-const PIE_COLORS = ["#2563eb", "#16a34a", "#f97316", "#7c3aed", "#dc2626", "#0891b2"];
+const CHART = {
+  primary: "#ed1c24",
+  primaryDark: "#b70611",
+  accent: "#ffdf00",
+  accentDark: "#f5a800",
+  ink: "#11100e",
+  neutral: "#d8cfbd",
+  slate: "#756f67",
+  grid: "#f1dfb1",
+  success: "#16834a",
+};
+
+const PIE_COLORS = [CHART.primary, CHART.accent, CHART.ink, CHART.accentDark, CHART.primaryDark, CHART.slate];
+const STATUS_COLORS = [CHART.success, CHART.accentDark, CHART.primary, CHART.ink];
 
 const brands = [
   "d'besto chicken n burger",
@@ -1110,13 +1125,13 @@ function DataTable({ columns, rows, emptyText = "Tidak ada data", onRowClick }) 
 
 function Button({ children, variant = "primary", className = "", ...props }) {
   const variants = {
-    primary: "bg-slate-900 text-white hover:bg-slate-700",
-    secondary: "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
-    danger: "bg-red-600 text-white hover:bg-red-500",
-    soft: "bg-blue-50 text-blue-700 hover:bg-blue-100",
+    primary: "dbesto-btn-primary",
+    secondary: "dbesto-btn-secondary",
+    danger: "dbesto-btn-danger",
+    soft: "dbesto-btn-soft",
   };
   return (
-    <button className={`rounded-xl px-3 py-2 text-sm font-semibold transition ${variants[variant]} ${className}`} {...props}>
+    <button className={`dbesto-btn rounded-xl px-3 py-2 text-sm font-semibold transition ${variants[variant]} ${className}`} {...props}>
       {children}
     </button>
   );
@@ -1124,14 +1139,14 @@ function Button({ children, variant = "primary", className = "", ...props }) {
 
 function Sidebar({ activePage, setActivePage }) {
   return (
-    <aside className="sticky top-0 hidden h-screen w-72 shrink-0 border-r border-slate-200 bg-slate-950 text-white lg:block">
+    <aside className="dbesto-sidebar sticky top-0 hidden h-screen w-72 shrink-0 border-r text-white lg:block">
       <div className="flex h-full flex-col">
-        <div className="border-b border-white/10 p-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-lg font-black text-slate-950">DB</div>
+        <div className="dbesto-sidebar-brand border-b border-white/10 p-6">
+          <div>
+            <img src={dbestoLogo} alt="d'Besto Jagonyo Rasa" className="dbesto-logo" />
             <div>
-              <p className="text-lg font-black tracking-tight">DBESTO Group</p>
-              <p className="text-xs text-slate-400">Owner Command Center</p>
+              <p className="mt-3 text-sm font-bold text-white">Owner Command Center</p>
+              <p className="text-xs text-slate-400">Dashboard Group & Operasional</p>
             </div>
           </div>
         </div>
@@ -1143,17 +1158,17 @@ function Sidebar({ activePage, setActivePage }) {
                 key={item.id}
                 onClick={() => setActivePage(item.id)}
                 className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
-                  active ? "bg-white text-slate-950 shadow-sm" : "text-slate-300 hover:bg-white/10 hover:text-white"
+                  active ? "dbesto-nav-active shadow-sm" : "dbesto-nav-idle"
                 }`}
               >
                 <span>{item.label}</span>
-                {item.id === "warning" ? <span className="rounded-full bg-red-600 px-2 py-0.5 text-xs text-white">20</span> : null}
+                {item.id === "warning" ? <span className="dbesto-count-badge rounded-full px-2 py-0.5 text-xs text-white">20</span> : null}
               </button>
             );
           })}
         </nav>
         <div className="border-t border-white/10 p-4">
-          <div className="rounded-2xl bg-white/10 p-4">
+          <div className="dbesto-focus-card rounded-2xl p-4">
             <p className="text-sm font-bold">Focus Hari Ini</p>
             <p className="mt-1 text-xs leading-5 text-slate-300">Audit outlet rugi, stock variance Karawang, settlement overdue Bekasi.</p>
           </div>
@@ -1165,11 +1180,14 @@ function Sidebar({ activePage, setActivePage }) {
 
 function MobileNav({ activePage, setActivePage }) {
   return (
-    <div className="border-b border-slate-200 bg-white px-4 py-3 lg:hidden">
+    <div className="dbesto-mobile-nav border-b px-4 py-3 lg:hidden">
       <div className="mb-3 flex items-center justify-between">
-        <div>
-          <p className="text-base font-black text-slate-950">DBESTO Group</p>
-          <p className="text-xs text-slate-500">Owner Command Center</p>
+        <div className="flex min-w-0 items-center gap-3">
+          <img src={dbestoLogo} alt="d'Besto Jagonyo Rasa" className="dbesto-mobile-logo" />
+          <div className="min-w-0">
+            <p className="text-sm font-black text-slate-950">Owner Command Center</p>
+            <p className="text-xs text-slate-500">Dashboard Group</p>
+          </div>
         </div>
         <StatusBadge status="Live Mock" />
       </div>
@@ -1178,7 +1196,7 @@ function MobileNav({ activePage, setActivePage }) {
           <button
             key={item.id}
             onClick={() => setActivePage(item.id)}
-            className={`shrink-0 rounded-xl px-3 py-2 text-xs font-bold ${activePage === item.id ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"}`}
+            className={`shrink-0 rounded-xl px-3 py-2 text-xs font-bold ${activePage === item.id ? "dbesto-mobile-tab-active" : "dbesto-mobile-tab-idle"}`}
           >
             {item.short}
           </button>
@@ -1190,12 +1208,12 @@ function MobileNav({ activePage, setActivePage }) {
 
 function Header({ title, filters, setFilters, highRiskCount }) {
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 px-4 py-4 backdrop-blur xl:px-8">
+    <header className="dbesto-header sticky top-0 z-20 border-b px-4 py-4 backdrop-blur xl:px-8">
       <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-black tracking-tight text-slate-950">{title}</h1>
-            <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">Mock Live</span>
+            <span className="dbesto-live-chip rounded-full px-2.5 py-1 text-xs font-bold ring-1">Mock Live</span>
           </div>
           <p className="mt-1 text-sm text-slate-500">Periode presentasi: 1-12 Mei 2026 · 1.300 outlet nasional</p>
         </div>
@@ -1232,9 +1250,9 @@ function Header({ title, filters, setFilters, highRiskCount }) {
             placeholder="Cari outlet / area..."
             className="min-w-[220px] rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           />
-          <button className="relative rounded-xl bg-slate-900 px-3 py-2 text-sm font-bold text-white">
+          <button className="dbesto-alert-button relative rounded-xl px-3 py-2 text-sm font-bold text-white">
             Alerts
-            <span className="absolute -right-2 -top-2 rounded-full bg-red-600 px-1.5 py-0.5 text-[10px] font-black text-white">{highRiskCount}</span>
+            <span className="dbesto-count-badge absolute -right-2 -top-2 rounded-full px-1.5 py-0.5 text-[10px] font-black text-white">{highRiskCount}</span>
           </button>
         </div>
       </div>
@@ -1328,13 +1346,13 @@ function ExecutiveSummary({ filteredOutlets, summary }) {
         <ChartCard title="Trend Omzet Harian" subtitle="Gross vs net sales 7 hari terakhir">
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={salesTrend7d} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="date" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatRp(value)} />
               <Legend />
-              <Line type="monotone" dataKey="gross" name="Gross Sales" stroke="#2563eb" strokeWidth={3} dot={false} />
-              <Line type="monotone" dataKey="net" name="Net Sales" stroke="#16a34a" strokeWidth={3} dot={false} />
+              <Line type="monotone" dataKey="gross" name="Gross Sales" stroke={CHART.primary} strokeWidth={3} dot={false} />
+              <Line type="monotone" dataKey="net" name="Net Sales" stroke={CHART.accentDark} strokeWidth={3} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1342,11 +1360,11 @@ function ExecutiveSummary({ filteredOutlets, summary }) {
         <ChartCard title="Omzet per Brand" subtitle="Kontribusi gross sales bulan ini">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={brandSales} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="brand" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatRp(value)} />
-              <Bar dataKey="sales" name="Sales" radius={[10, 10, 0, 0]} fill="#2563eb" />
+              <Bar dataKey="sales" name="Sales" radius={[10, 10, 0, 0]} fill={CHART.primary} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1354,11 +1372,11 @@ function ExecutiveSummary({ filteredOutlets, summary }) {
         <ChartCard title="Omzet per Area" subtitle="Area utama DBESTO Group">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={areaSales} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="area" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => (typeof value === "number" ? formatRp(value) : value)} />
-              <Bar dataKey="sales" name="Sales" radius={[10, 10, 0, 0]} fill="#16a34a" />
+              <Bar dataKey="sales" name="Sales" radius={[10, 10, 0, 0]} fill={CHART.accentDark} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1461,15 +1479,15 @@ function SalesRevenue({ filteredOutlets }) {
         <ChartCard title="Trend Omzet Harian" subtitle="Gross sales, net sales, dan transaksi harian">
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={salesTrend7d}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="date" tickLine={false} axisLine={false} />
               <YAxis yAxisId="left" tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <YAxis yAxisId="right" orientation="right" tickFormatter={formatNumber} tickLine={false} axisLine={false} width={70} />
               <Tooltip formatter={(value, name) => (name === "trx" ? formatNumber(value) : formatRp(value))} />
               <Legend />
-              <Line yAxisId="left" type="monotone" dataKey="gross" name="Gross" stroke="#2563eb" strokeWidth={3} dot={false} />
-              <Line yAxisId="left" type="monotone" dataKey="net" name="Net" stroke="#16a34a" strokeWidth={3} dot={false} />
-              <Line yAxisId="right" type="monotone" dataKey="trx" name="trx" stroke="#f97316" strokeWidth={2} dot={false} />
+              <Line yAxisId="left" type="monotone" dataKey="gross" name="Gross" stroke={CHART.primary} strokeWidth={3} dot={false} />
+              <Line yAxisId="left" type="monotone" dataKey="net" name="Net" stroke={CHART.accentDark} strokeWidth={3} dot={false} />
+              <Line yAxisId="right" type="monotone" dataKey="trx" name="trx" stroke={CHART.ink} strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1489,11 +1507,11 @@ function SalesRevenue({ filteredOutlets }) {
         <ChartCard title="Sales by Brand" subtitle="Brand contribution dan margin">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={brandSales}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="brand" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatRp(value)} />
-              <Bar dataKey="sales" name="Sales" fill="#2563eb" radius={[10, 10, 0, 0]} />
+              <Bar dataKey="sales" name="Sales" fill={CHART.primary} radius={[10, 10, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1501,11 +1519,11 @@ function SalesRevenue({ filteredOutlets }) {
         <ChartCard title="Sales by Area" subtitle="Area revenue dan SLA distribusi">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={areaSales}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="area" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => (typeof value === "number" ? formatRp(value) : value)} />
-              <Bar dataKey="sales" name="Sales" fill="#16a34a" radius={[10, 10, 0, 0]} />
+              <Bar dataKey="sales" name="Sales" fill={CHART.accentDark} radius={[10, 10, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1579,7 +1597,7 @@ function OutletPerformance({ filteredOutlets }) {
                 outerRadius={95}
                 innerRadius={55}
               >
-                {["#16a34a", "#f59e0b", "#dc2626", "#7c3aed"].map((color) => <Cell key={color} fill={color} />)}
+                {STATUS_COLORS.map((color) => <Cell key={color} fill={color} />)}
               </Pie>
               <Tooltip formatter={(value, name) => [`${value} outlet`, name]} />
               <Legend />
@@ -1589,13 +1607,13 @@ function OutletPerformance({ filteredOutlets }) {
         <ChartCard title="Target vs Actual Outlet" subtitle="Monthly sales dibanding target" className="xl:col-span-2">
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={filteredOutlets.slice(0, 10)}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="id" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatRp(value)} />
               <Legend />
-              <Bar dataKey="target" name="Target" fill="#cbd5e1" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="monthlySales" name="Actual" fill="#2563eb" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="target" name="Target" fill={CHART.neutral} radius={[8, 8, 0, 0]} />
+              <Bar dataKey="monthlySales" name="Actual" fill={CHART.primary} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1671,11 +1689,11 @@ function OutletDetailModal({ outlet, onClose }) {
             <ChartCard title="Drill-down Omzet 7 Hari" subtitle="Trend outlet terpilih">
               <ResponsiveContainer width="100%" height={260}>
                 <LineChart data={miniTrend}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
                   <XAxis dataKey="date" tickLine={false} axisLine={false} />
                   <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
                   <Tooltip formatter={(value) => formatRp(value)} />
-                  <Line type="monotone" dataKey="sales" name="Outlet Sales" stroke="#2563eb" strokeWidth={3} dot={false} />
+                  <Line type="monotone" dataKey="sales" name="Outlet Sales" stroke={CHART.primary} strokeWidth={3} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -1745,29 +1763,29 @@ function StockistWarehouse() {
         <ChartCard title="Stock Level by Stockist" subtitle="Frozen chicken, meat, sausage, bumbu, saus">
           <ResponsiveContainer width="100%" height={320}>
             <BarChart data={stockists}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="area" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatNumber} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatNumber(value)} />
               <Legend />
-              <Bar dataKey="frozenChicken" name="Ayam" stackId="a" fill="#2563eb" />
-              <Bar dataKey="meat" name="Daging" stackId="a" fill="#16a34a" />
-              <Bar dataKey="sausage" name="Sosis" stackId="a" fill="#f97316" />
-              <Bar dataKey="seasoning" name="Bumbu" stackId="a" fill="#7c3aed" />
-              <Bar dataKey="sauce" name="Saus" stackId="a" fill="#0891b2" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="frozenChicken" name="Ayam" stackId="a" fill={CHART.primary} />
+              <Bar dataKey="meat" name="Daging" stackId="a" fill={CHART.accentDark} />
+              <Bar dataKey="sausage" name="Sosis" stackId="a" fill={CHART.accent} />
+              <Bar dataKey="seasoning" name="Bumbu" stackId="a" fill={CHART.primaryDark} />
+              <Bar dataKey="sauce" name="Saus" stackId="a" fill={CHART.slate} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
         <ChartCard title="Critical Stock Alert" subtitle="Stok kritis dan expiry alert per stockist">
           <ResponsiveContainer width="100%" height={320}>
             <BarChart data={stockists}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="area" tickLine={false} axisLine={false} />
               <YAxis tickLine={false} axisLine={false} />
               <Tooltip />
               <Legend />
-              <Bar dataKey="criticalItems" name="Stok Kritis" fill="#dc2626" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="expiryAlerts" name="Expiry Alert" fill="#f59e0b" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="criticalItems" name="Stok Kritis" fill={CHART.primary} radius={[8, 8, 0, 0]} />
+              <Bar dataKey="expiryAlerts" name="Expiry Alert" fill={CHART.accent} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1862,26 +1880,26 @@ function ProductionColdStorage() {
         <ChartCard title="Production Plan vs Actual" subtitle="Kg produksi per rumah produksi">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={productionPlanRows}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="name" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatNumber} tickLine={false} axisLine={false} />
               <Tooltip formatter={(value) => `${formatNumber(value)} kg`} />
               <Legend />
-              <Bar dataKey="planned" name="Planned" fill="#cbd5e1" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="actual" name="Actual" fill="#2563eb" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="planned" name="Planned" fill={CHART.neutral} radius={[8, 8, 0, 0]} />
+              <Bar dataKey="actual" name="Actual" fill={CHART.primary} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
         <ChartCard title="Yield Variance Chart" subtitle="Actual yield vs standard">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={productionHouses}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="area" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={(value) => `${value}%`} tickLine={false} axisLine={false} domain={[85, 96]} />
               <Tooltip formatter={(value) => formatPct(value)} />
               <Legend />
-              <Bar dataKey="yieldStandard" name="Standard" fill="#cbd5e1" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="actualYield" name="Actual" fill="#16a34a" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="yieldStandard" name="Standard" fill={CHART.neutral} radius={[8, 8, 0, 0]} />
+              <Bar dataKey="actualYield" name="Actual" fill={CHART.accentDark} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -1987,13 +2005,13 @@ function LogisticsDelivery() {
         <ChartCard title="SLA Trend" subtitle="On-time dan in-full 7 hari">
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={slaTrend}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="day" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={(value) => `${value}%`} tickLine={false} axisLine={false} domain={[85, 100]} />
               <Tooltip formatter={(value) => formatPct(value)} />
               <Legend />
-              <Line type="monotone" dataKey="onTime" name="On-time" stroke="#2563eb" strokeWidth={3} dot={false} />
-              <Line type="monotone" dataKey="inFull" name="In-full" stroke="#16a34a" strokeWidth={3} dot={false} />
+              <Line type="monotone" dataKey="onTime" name="On-time" stroke={CHART.primary} strokeWidth={3} dot={false} />
+              <Line type="monotone" dataKey="inFull" name="In-full" stroke={CHART.accentDark} strokeWidth={3} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -2090,11 +2108,11 @@ function FinanceSettlement() {
         <ChartCard title="AR Aging Chart" subtitle="Piutang franchisee berdasarkan umur">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={arAging}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="bucket" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatRp(value)} />
-              <Bar dataKey="value" name="AR" fill="#f97316" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="value" name="AR" fill={CHART.ink} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -2371,22 +2389,22 @@ function EarlyWarning() {
         <ChartCard title="Alert by Category" subtitle="Jumlah alert per kategori leakage">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={categoryCounts}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="category" tickLine={false} axisLine={false} />
               <YAxis tickLine={false} axisLine={false} />
               <Tooltip />
-              <Bar dataKey="count" name="Alert" fill="#dc2626" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="count" name="Alert" fill={CHART.primary} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
         <ChartCard title="Estimated Loss by Category" subtitle="Potensi kerugian yang perlu dicegah">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={categoryCounts}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="category" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
               <Tooltip formatter={(value) => formatRp(value)} />
-              <Bar dataKey="loss" name="Estimated Loss" fill="#7c3aed" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="loss" name="Estimated Loss" fill={CHART.ink} radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -2491,7 +2509,7 @@ function AppShell() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
+    <div className="dbesto-app min-h-screen text-slate-900">
       <MobileNav activePage={activePage} setActivePage={setActivePage} />
       <div className="flex">
         <Sidebar activePage={activePage} setActivePage={setActivePage} />
@@ -2499,7 +2517,7 @@ function AppShell() {
           <Header title={pageTitle} filters={filters} setFilters={setFilters} highRiskCount={summary.highRiskAlerts} />
           <div className="px-4 py-6 xl:px-8">
             {renderPage()}
-            <footer className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-500 shadow-sm">
+            <footer className="dbesto-footer mt-8 rounded-2xl border p-4 text-sm text-slate-500 shadow-sm">
               Prototype UI owner dashboard DBESTO Group · data dummy internal · tanpa backend, database, login, atau API integration.
             </footer>
           </div>
