@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -46,6 +46,34 @@ const CHART = {
 
 const PIE_COLORS = [CHART.primary, CHART.accent, CHART.ink, CHART.accentDark, CHART.primaryDark, CHART.slate];
 const STATUS_COLORS = [CHART.success, CHART.accentDark, CHART.primary, CHART.ink];
+
+function getNodeText(node) {
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getNodeText).join(" ").trim();
+  if (React.isValidElement(node)) return getNodeText(node.props.children);
+  return "Aksi";
+}
+
+function showDemoToast({ title = "Aksi diproses", message, tone = "info" } = {}) {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(
+    new CustomEvent("dbesto:toast", {
+      detail: {
+        title,
+        message: message || "Fitur ini masih mode prototype. Simulasi berhasil ditampilkan, backend belum tersambung.",
+        tone,
+      },
+    })
+  );
+}
+
+function showFilterToast(label, value) {
+  showDemoToast({
+    title: "Filter diperbarui",
+    message: `${label}: ${value}. Data dashboard sudah menyesuaikan data demo.`,
+    tone: "success",
+  });
+}
 
 const brands = [
   "d'besto chicken n burger",
@@ -1123,15 +1151,79 @@ function DataTable({ columns, rows, emptyText = "Tidak ada data", onRowClick }) 
   );
 }
 
-function Button({ children, variant = "primary", className = "", ...props }) {
+function ToastHost() {
+  const [toasts, setToasts] = useState([]);
+
+  useEffect(() => {
+    const timers = [];
+    const handleToast = (event) => {
+      const id = `${Date.now()}-${Math.random()}`;
+      const toast = {
+        id,
+        tone: event.detail?.tone || "info",
+        title: event.detail?.title || "Aksi diproses",
+        message: event.detail?.message || "Fitur ini masih mode prototype.",
+      };
+      setToasts((current) => [toast, ...current].slice(0, 4));
+      timers.push(window.setTimeout(() => {
+        setToasts((current) => current.filter((item) => item.id !== id));
+      }, 3600));
+    };
+
+    window.addEventListener("dbesto:toast", handleToast);
+    return () => {
+      window.removeEventListener("dbesto:toast", handleToast);
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
+  }, []);
+
+  if (toasts.length === 0) return null;
+
+  return (
+    <div className="dbesto-toast-stack" aria-live="polite" aria-atomic="true">
+      {toasts.map((toast) => (
+        <div key={toast.id} className={`dbesto-toast dbesto-toast-${toast.tone}`} role="status">
+          <div>
+            <p className="dbesto-toast-title">{toast.title}</p>
+            <p className="dbesto-toast-message">{toast.message}</p>
+          </div>
+          <button
+            type="button"
+            className="dbesto-toast-close"
+            aria-label="Tutup notifikasi"
+            onClick={() => setToasts((current) => current.filter((item) => item.id !== toast.id))}
+          >
+            x
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Button({ children, variant = "primary", className = "", onClick, demoMessage, type = "button", ...props }) {
   const variants = {
     primary: "dbesto-btn-primary",
     secondary: "dbesto-btn-secondary",
     danger: "dbesto-btn-danger",
     soft: "dbesto-btn-soft",
   };
+  const label = getNodeText(children);
+  const handleClick = (event) => {
+    if (onClick) {
+      onClick(event);
+      return;
+    }
+
+    showDemoToast({
+      title: `${label} diproses`,
+      message: demoMessage,
+      tone: variant === "danger" ? "warning" : "info",
+    });
+  };
+
   return (
-    <button className={`dbesto-btn rounded-xl px-3 py-2 text-sm font-semibold transition ${variants[variant]} ${className}`} {...props}>
+    <button type={type} onClick={handleClick} className={`dbesto-btn rounded-xl px-3 py-2 text-sm font-semibold transition ${variants[variant]} ${className}`} {...props}>
       {children}
     </button>
   );
@@ -1155,6 +1247,7 @@ function Sidebar({ activePage, setActivePage }) {
             const active = activePage === item.id;
             return (
               <button
+                type="button"
                 key={item.id}
                 onClick={() => setActivePage(item.id)}
                 className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
@@ -1194,6 +1287,7 @@ function MobileNav({ activePage, setActivePage }) {
       <div className="flex gap-2 overflow-x-auto pb-1">
         {menuItems.map((item) => (
           <button
+            type="button"
             key={item.id}
             onClick={() => setActivePage(item.id)}
             className={`shrink-0 rounded-xl px-3 py-2 text-xs font-bold ${activePage === item.id ? "dbesto-mobile-tab-active" : "dbesto-mobile-tab-idle"}`}
@@ -1206,7 +1300,7 @@ function MobileNav({ activePage, setActivePage }) {
   );
 }
 
-function Header({ title, filters, setFilters, highRiskCount }) {
+function Header({ title, filters, setFilters, highRiskCount, onOpenAlerts }) {
   return (
     <header className="dbesto-header sticky top-0 z-20 border-b px-4 py-4 backdrop-blur xl:px-8">
       <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
@@ -1220,7 +1314,11 @@ function Header({ title, filters, setFilters, highRiskCount }) {
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
           <select
             value={filters.dateRange}
-            onChange={(event) => setFilters((prev) => ({ ...prev, dateRange: event.target.value }))}
+            onChange={(event) => {
+              const value = event.target.value;
+              setFilters((prev) => ({ ...prev, dateRange: value }));
+              showFilterToast("Periode", value);
+            }}
             className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           >
             <option>Hari Ini</option>
@@ -1230,7 +1328,11 @@ function Header({ title, filters, setFilters, highRiskCount }) {
           </select>
           <select
             value={filters.area}
-            onChange={(event) => setFilters((prev) => ({ ...prev, area: event.target.value }))}
+            onChange={(event) => {
+              const value = event.target.value;
+              setFilters((prev) => ({ ...prev, area: value }));
+              showFilterToast("Area", value);
+            }}
             className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           >
             <option>Semua Area</option>
@@ -1238,7 +1340,11 @@ function Header({ title, filters, setFilters, highRiskCount }) {
           </select>
           <select
             value={filters.brand}
-            onChange={(event) => setFilters((prev) => ({ ...prev, brand: event.target.value }))}
+            onChange={(event) => {
+              const value = event.target.value;
+              setFilters((prev) => ({ ...prev, brand: value }));
+              showFilterToast("Brand", value);
+            }}
             className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           >
             <option>Semua Brand</option>
@@ -1250,7 +1356,7 @@ function Header({ title, filters, setFilters, highRiskCount }) {
             placeholder="Cari outlet / area..."
             className="min-w-[220px] rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           />
-          <button className="dbesto-alert-button relative rounded-xl px-3 py-2 text-sm font-bold text-white">
+          <button type="button" onClick={onOpenAlerts} className="dbesto-alert-button relative rounded-xl px-3 py-2 text-sm font-bold text-white">
             Alerts
             <span className="dbesto-count-badge absolute -right-2 -top-2 rounded-full px-1.5 py-0.5 text-[10px] font-black text-white">{highRiskCount}</span>
           </button>
@@ -1314,7 +1420,7 @@ function PageSection({ title, subtitle, action, children }) {
   );
 }
 
-function ExecutiveSummary({ filteredOutlets, summary }) {
+function ExecutiveSummary({ filteredOutlets, summary, setActivePage }) {
   const topOutlets = [...filteredOutlets].sort((a, b) => b.monthlySales - a.monthlySales).slice(0, 10);
   const bottomOutlets = [...filteredOutlets].sort((a, b) => b.riskScore - a.riskScore).slice(0, 10);
   const ownershipData = ownershipSchemes.map((scheme) => ({ name: scheme, value: outlets.filter((outlet) => outlet.ownership === scheme).length }));
@@ -1424,7 +1530,25 @@ function ExecutiveSummary({ filteredOutlets, summary }) {
         </PageSection>
       </div>
 
-      <PageSection title="Alert Prioritas Owner" subtitle="Critical/high issue yang membutuhkan keputusan cepat" action={<Button variant="soft">Lihat semua alert</Button>}>
+      <PageSection
+        title="Alert Prioritas Owner"
+        subtitle="Critical/high issue yang membutuhkan keputusan cepat"
+        action={
+          <Button
+            variant="soft"
+            onClick={() => {
+              setActivePage("warning");
+              showDemoToast({
+                title: "Early Warning dibuka",
+                message: "Semua alert prioritas owner ditampilkan di halaman Early Warning.",
+                tone: "warning",
+              });
+            }}
+          >
+            Lihat semua alert
+          </Button>
+        }
+      >
         <div className="grid gap-4 xl:grid-cols-3">
           {priorityAlerts.map((alert) => <AlertCard key={alert.id} alert={alert} />)}
         </div>
@@ -1453,7 +1577,15 @@ function SalesRevenue({ filteredOutlets }) {
           <p className="text-sm text-slate-500">Tanggal, brand, area, outlet, payment method, dan ownership scheme.</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <select value={paymentFilter} onChange={(event) => setPaymentFilter(event.target.value)} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold">
+          <select
+            value={paymentFilter}
+            onChange={(event) => {
+              const value = event.target.value;
+              setPaymentFilter(value);
+              showFilterToast("Payment method", value);
+            }}
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold"
+          >
             <option>Semua Payment</option>
             {paymentMethods.map((payment) => <option key={payment.name}>{payment.name}</option>)}
           </select>
@@ -2181,7 +2313,8 @@ function FinanceSettlementCard({ item }) {
 }
 
 function ProfitSharing() {
-  const [sim, setSim] = useState({ netSales: 650000000, cogsRatio: 61, opex: 95000000, royalty: 3, managementFee: 2, companyShare: 50, investorShare: 35, franchiseeShare: 0, operatorShare: 15 });
+  const defaultSim = { netSales: 650000000, cogsRatio: 61, opex: 95000000, royalty: 3, managementFee: 2, companyShare: 50, investorShare: 35, franchiseeShare: 0, operatorShare: 15 };
+  const [sim, setSim] = useState(defaultSim);
   const [investorFilter, setInvestorFilter] = useState("Semua Investor");
 
   const rows = investorFilter === "Semua Investor" ? profitSharingRows : profitSharingRows.filter((row) => row.investorName === investorFilter);
@@ -2233,7 +2366,26 @@ function ProfitSharing() {
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Simulasi Profit Sharing" subtitle="Hitung cepat payout outlet baru / outlet existing" className="xl:col-span-2" action={<Button variant="secondary">Reset Simulasi</Button>}>
+        <ChartCard
+          title="Simulasi Profit Sharing"
+          subtitle="Hitung cepat payout outlet baru / outlet existing"
+          className="xl:col-span-2"
+          action={
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setSim(defaultSim);
+                showDemoToast({
+                  title: "Simulasi direset",
+                  message: "Input profit sharing kembali ke template awal.",
+                  tone: "success",
+                });
+              }}
+            >
+              Reset Simulasi
+            </Button>
+          }
+        >
           <div className="grid gap-4 lg:grid-cols-2">
             <div className="grid gap-3 sm:grid-cols-2">
               {[
@@ -2288,7 +2440,15 @@ function ProfitSharing() {
         subtitle="Transparansi payout berdasarkan outlet, investor, kontribusi modal, dan status pembayaran"
         action={
           <div className="flex flex-wrap gap-2">
-            <select value={investorFilter} onChange={(event) => setInvestorFilter(event.target.value)} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold">
+            <select
+              value={investorFilter}
+              onChange={(event) => {
+                const value = event.target.value;
+                setInvestorFilter(value);
+                showFilterToast("Investor", value);
+              }}
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold"
+            >
               <option>Semua Investor</option>
               {investorNames.map((name) => <option key={name}>{name}</option>)}
             </select>
@@ -2352,14 +2512,30 @@ function EarlyWarning() {
             <p className="text-sm text-slate-500">Stock, cash, production, logistics, dan finance leakage dalam satu prioritas.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <select value={severity} onChange={(event) => setSeverity(event.target.value)} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold">
+            <select
+              value={severity}
+              onChange={(event) => {
+                const value = event.target.value;
+                setSeverity(value);
+                showFilterToast("Severity", value);
+              }}
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold"
+            >
               <option>Semua Severity</option>
               <option>Critical</option>
               <option>High</option>
               <option>Medium</option>
               <option>Low</option>
             </select>
-            <select value={category} onChange={(event) => setCategory(event.target.value)} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold">
+            <select
+              value={category}
+              onChange={(event) => {
+                const value = event.target.value;
+                setCategory(value);
+                showFilterToast("Kategori alert", value);
+              }}
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold"
+            >
               <option>Semua Kategori</option>
               <option>Stock Leakage</option>
               <option>Cash Leakage</option>
@@ -2482,11 +2658,19 @@ function AppShell() {
   }, [filteredOutlets]);
 
   const pageTitle = menuItems.find((item) => item.id === activePage)?.label || "Executive Summary";
+  const handleOpenAlerts = () => {
+    setActivePage("warning");
+    showDemoToast({
+      title: "Early Warning dibuka",
+      message: `${summary.highRiskAlerts} alert critical/high ditampilkan untuk follow-up owner.`,
+      tone: "warning",
+    });
+  };
 
   const renderPage = () => {
     switch (activePage) {
       case "executive":
-        return <ExecutiveSummary filteredOutlets={filteredOutlets} summary={summary} />;
+        return <ExecutiveSummary filteredOutlets={filteredOutlets} summary={summary} setActivePage={setActivePage} />;
       case "sales":
         return <SalesRevenue filteredOutlets={filteredOutlets} />;
       case "outlet":
@@ -2504,17 +2688,18 @@ function AppShell() {
       case "warning":
         return <EarlyWarning />;
       default:
-        return <ExecutiveSummary filteredOutlets={filteredOutlets} summary={summary} />;
+        return <ExecutiveSummary filteredOutlets={filteredOutlets} summary={summary} setActivePage={setActivePage} />;
     }
   };
 
   return (
     <div className="dbesto-app min-h-screen text-slate-900">
+      <ToastHost />
       <MobileNav activePage={activePage} setActivePage={setActivePage} />
       <div className="flex">
         <Sidebar activePage={activePage} setActivePage={setActivePage} />
         <main className="min-w-0 flex-1">
-          <Header title={pageTitle} filters={filters} setFilters={setFilters} highRiskCount={summary.highRiskAlerts} />
+          <Header title={pageTitle} filters={filters} setFilters={setFilters} highRiskCount={summary.highRiskAlerts} onOpenAlerts={handleOpenAlerts} />
           <div className="px-4 py-6 xl:px-8">
             {renderPage()}
             <footer className="dbesto-footer mt-8 rounded-2xl border p-4 text-sm text-slate-500 shadow-sm">
