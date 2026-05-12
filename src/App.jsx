@@ -84,7 +84,7 @@ const brands = [
   "d'bakso",
 ];
 
-const areas = ["Jakarta", "Bekasi", "Karawang", "Semarang", "Surabaya"];
+const areas = ["Barat", "Tengah", "Timur"];
 
 const ownershipSchemes = [
   "Full Company",
@@ -137,11 +137,9 @@ const brandSales = [
 ];
 
 const areaSales = [
-  { area: "Jakarta", sales: 16800000000, outlets: 350, sla: 94.6 },
-  { area: "Bekasi", sales: 12300000000, outlets: 275, sla: 92.4 },
-  { area: "Karawang", sales: 8600000000, outlets: 170, sla: 89.2 },
-  { area: "Semarang", sales: 9400000000, outlets: 225, sla: 93.1 },
-  { area: "Surabaya", sales: 11600000000, outlets: 280, sla: 91.7 },
+  { area: "Barat", sales: 37700000000, outlets: 795, sla: 92.7 },
+  { area: "Tengah", sales: 9400000000, outlets: 225, sla: 93.1 },
+  { area: "Timur", sales: 11600000000, outlets: 280, sla: 91.7 },
 ];
 
 const menuSales = [
@@ -162,7 +160,7 @@ const outlets = [
     id: "OUT-001",
     name: "d'besto Rawamangun",
     brand: "d'besto chicken n burger",
-    area: "Jakarta",
+    area: "Barat",
     ownership: "Full Company",
     active: true,
     status: "Healthy",
@@ -186,7 +184,7 @@ const outlets = [
     id: "OUT-002",
     name: "d'besto Kelapa Gading",
     brand: "d'besto chicken n burger",
-    area: "Jakarta",
+    area: "Barat",
     ownership: "Company + Investor",
     active: true,
     status: "Attention",
@@ -210,7 +208,7 @@ const outlets = [
     id: "OUT-003",
     name: "d'chicken Jatiwaringin",
     brand: "d'chicken",
-    area: "Bekasi",
+    area: "Barat",
     ownership: "Full Franchisee",
     active: true,
     status: "Healthy",
@@ -234,7 +232,7 @@ const outlets = [
     id: "OUT-004",
     name: "Lazatto Karawang Barat",
     brand: "Lazatto chicken n burger",
-    area: "Karawang",
+    area: "Barat",
     ownership: "Group + Non-Group",
     active: true,
     status: "High Risk",
@@ -258,7 +256,7 @@ const outlets = [
     id: "OUT-005",
     name: "d'roasting Tembalang",
     brand: "d'roasting",
-    area: "Semarang",
+    area: "Tengah",
     ownership: "Full Franchisee",
     active: true,
     status: "Healthy",
@@ -282,7 +280,7 @@ const outlets = [
     id: "OUT-006",
     name: "d'Sruput Surabaya Rungkut",
     brand: "d'Sruput",
-    area: "Surabaya",
+    area: "Timur",
     ownership: "Company + Investor + Operator",
     active: true,
     status: "Attention",
@@ -306,7 +304,7 @@ const outlets = [
     id: "OUT-007",
     name: "d'bakso Bekasi Timur",
     brand: "d'bakso",
-    area: "Bekasi",
+    area: "Barat",
     ownership: "Full Company",
     active: true,
     status: "Audit Required",
@@ -330,7 +328,7 @@ const outlets = [
     id: "OUT-008",
     name: "d'besto Cikarang Selatan",
     brand: "d'besto chicken n burger",
-    area: "Bekasi",
+    area: "Barat",
     ownership: "Company + Investor",
     active: true,
     status: "High Risk",
@@ -354,7 +352,7 @@ const outlets = [
     id: "OUT-009",
     name: "Lazatto Cikampek",
     brand: "Lazatto chicken n burger",
-    area: "Karawang",
+    area: "Barat",
     ownership: "Full Franchisee",
     active: true,
     status: "Healthy",
@@ -378,7 +376,7 @@ const outlets = [
     id: "OUT-010",
     name: "d'chicken Banyumanik",
     brand: "d'chicken",
-    area: "Semarang",
+    area: "Tengah",
     ownership: "Group + Non-Group",
     active: true,
     status: "Attention",
@@ -402,7 +400,7 @@ const outlets = [
     id: "OUT-011",
     name: "d'besto Kenjeran",
     brand: "d'besto chicken n burger",
-    area: "Surabaya",
+    area: "Timur",
     ownership: "Full Company",
     active: true,
     status: "Healthy",
@@ -426,7 +424,7 @@ const outlets = [
     id: "OUT-012",
     name: "d'roasting Tebet",
     brand: "d'roasting",
-    area: "Jakarta",
+    area: "Barat",
     ownership: "Company + Investor",
     active: true,
     status: "Healthy",
@@ -450,7 +448,7 @@ const outlets = [
     id: "OUT-013",
     name: "d'Sruput Karawang Timur",
     brand: "d'Sruput",
-    area: "Karawang",
+    area: "Barat",
     ownership: "Full Franchisee",
     active: true,
     status: "High Risk",
@@ -474,7 +472,7 @@ const outlets = [
     id: "OUT-014",
     name: "d'bakso Manyar",
     brand: "d'bakso",
-    area: "Surabaya",
+    area: "Timur",
     ownership: "Company + Investor + Operator",
     active: true,
     status: "Attention",
@@ -498,7 +496,7 @@ const outlets = [
     id: "OUT-015",
     name: "d'besto Pondok Gede",
     brand: "d'besto chicken n burger",
-    area: "Bekasi",
+    area: "Barat",
     ownership: "Full Company",
     active: true,
     status: "Healthy",
@@ -522,7 +520,7 @@ const outlets = [
     id: "OUT-016",
     name: "Lazatto Ungaran",
     brand: "Lazatto chicken n burger",
-    area: "Semarang",
+    area: "Tengah",
     ownership: "Full Franchisee",
     active: false,
     status: "Attention",
@@ -546,7 +544,7 @@ const outlets = [
     id: "OUT-017",
     name: "d'chicken Grogol",
     brand: "d'chicken",
-    area: "Jakarta",
+    area: "Barat",
     ownership: "Company + Investor + Operator",
     active: true,
     status: "Audit Required",
@@ -570,7 +568,7 @@ const outlets = [
     id: "OUT-018",
     name: "d'besto Rungkut Industri",
     brand: "d'besto chicken n burger",
-    area: "Surabaya",
+    area: "Timur",
     ownership: "Full Company",
     active: true,
     status: "High Risk",
@@ -594,7 +592,7 @@ const outlets = [
     id: "OUT-019",
     name: "d'bakso Telukjambe",
     brand: "d'bakso",
-    area: "Karawang",
+    area: "Barat",
     ownership: "Group + Non-Group",
     active: true,
     status: "Healthy",
@@ -618,7 +616,7 @@ const outlets = [
     id: "OUT-020",
     name: "d'Sruput Simpang Lima",
     brand: "d'Sruput",
-    area: "Semarang",
+    area: "Tengah",
     ownership: "Full Franchisee",
     active: true,
     status: "Healthy",
@@ -644,7 +642,7 @@ const stockists = [
   {
     id: "STK-01",
     name: "Stockist Jakarta Cakung",
-    area: "Jakarta",
+    area: "Barat",
     health: "Healthy",
     frozenChicken: 24800,
     meat: 7200,
@@ -664,7 +662,7 @@ const stockists = [
   {
     id: "STK-02",
     name: "Stockist Bekasi Jatiasih",
-    area: "Bekasi",
+    area: "Barat",
     health: "Attention",
     frozenChicken: 15800,
     meat: 5200,
@@ -684,7 +682,7 @@ const stockists = [
   {
     id: "STK-03",
     name: "Stockist Karawang Barat",
-    area: "Karawang",
+    area: "Barat",
     health: "High Risk",
     frozenChicken: 9100,
     meat: 2900,
@@ -704,7 +702,7 @@ const stockists = [
   {
     id: "STK-04",
     name: "Stockist Semarang Genuk",
-    area: "Semarang",
+    area: "Tengah",
     health: "Healthy",
     frozenChicken: 17600,
     meat: 4800,
@@ -724,7 +722,7 @@ const stockists = [
   {
     id: "STK-05",
     name: "Stockist Surabaya Waru",
-    area: "Surabaya",
+    area: "Timur",
     health: "Attention",
     frozenChicken: 18900,
     meat: 5300,
@@ -752,7 +750,7 @@ const stockVarianceRows = [
 ];
 
 const expiryAlerts = [
-  { stockist: "Karawang Barat", item: "Sosis jumbo", qty: 420, expiredIn: "3 hari", action: "Push promo / transfer area", status: "High" },
+  { stockist: "Karawang Barat", item: "Sosis jumbo", qty: 420, expiredIn: "3 hari", action: "Push promo / transfer wilayah", status: "High" },
   { stockist: "Bekasi Jatiasih", item: "Saus keju", qty: 280, expiredIn: "5 hari", action: "Prioritaskan DO outlet high traffic", status: "Medium" },
   { stockist: "Surabaya Waru", item: "Bumbu roasting", qty: 190, expiredIn: "6 hari", action: "QC ulang + rotate stock", status: "Medium" },
   { stockist: "Jakarta Cakung", item: "Packaging cup 16oz", qty: 9000, expiredIn: "12 hari", action: "Normal rotate", status: "Low" },
@@ -761,8 +759,8 @@ const expiryAlerts = [
 const productionHouses = [
   {
     id: "PRD-01",
-    name: "Rumah Produksi Jakarta",
-    area: "Jakarta",
+    name: "Rumah Produksi Barat",
+    area: "Barat",
     status: "Healthy",
     plannedProduction: 38500,
     actualProduction: 37980,
@@ -780,8 +778,8 @@ const productionHouses = [
   },
   {
     id: "PRD-02",
-    name: "Rumah Produksi Bekasi",
-    area: "Bekasi",
+    name: "Rumah Produksi Tengah",
+    area: "Tengah",
     status: "Attention",
     plannedProduction: 31200,
     actualProduction: 29680,
@@ -799,8 +797,8 @@ const productionHouses = [
   },
   {
     id: "PRD-03",
-    name: "Rumah Produksi Karawang",
-    area: "Karawang",
+    name: "Rumah Produksi Timur",
+    area: "Timur",
     status: "High Risk",
     plannedProduction: 24600,
     actualProduction: 22100,
@@ -898,11 +896,11 @@ const arAging = [
 ];
 
 const cashVarianceRows = [
-  { outlet: "d'chicken Grogol", area: "Jakarta", posCash: 48600000, physical: 44200000, variance: -4400000, status: "Audit Required" },
-  { outlet: "Lazatto Karawang Barat", area: "Karawang", posCash: 39200000, physical: 32300000, variance: -6900000, status: "High Risk" },
-  { outlet: "d'bakso Bekasi Timur", area: "Bekasi", posCash: 34400000, physical: 31200000, variance: -3200000, status: "High Risk" },
-  { outlet: "d'besto Cikarang Selatan", area: "Bekasi", posCash: 42100000, physical: 37000000, variance: -5100000, status: "High Risk" },
-  { outlet: "d'Sruput Surabaya Rungkut", area: "Surabaya", posCash: 18600000, physical: 17840000, variance: -760000, status: "Attention" },
+  { outlet: "d'chicken Grogol", area: "Barat", posCash: 48600000, physical: 44200000, variance: -4400000, status: "Audit Required" },
+  { outlet: "Lazatto Karawang Barat", area: "Barat", posCash: 39200000, physical: 32300000, variance: -6900000, status: "High Risk" },
+  { outlet: "d'bakso Bekasi Timur", area: "Barat", posCash: 34400000, physical: 31200000, variance: -3200000, status: "High Risk" },
+  { outlet: "d'besto Cikarang Selatan", area: "Barat", posCash: 42100000, physical: 37000000, variance: -5100000, status: "High Risk" },
+  { outlet: "d'Sruput Surabaya Rungkut", area: "Timur", posCash: 18600000, physical: 17840000, variance: -760000, status: "Attention" },
 ];
 
 const lossMakingOutlets = outlets.filter((outlet) => outlet.netProfit < 0);
@@ -927,16 +925,16 @@ const investorNames = [
 ];
 
 const rawProfitRows = [
-  { outletName: "d'besto Kelapa Gading", brand: "d'besto chicken n burger", area: "Jakarta", ownershipScheme: "Company + Investor", investorName: investorNames[1], companyShare: 0.55, investorShare: 0.35, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 950000000, grossSales: 742000000, netSales: 691000000, cogs: 439000000, opex: 110000000, royalty: 20730000, managementFee: 13820000, payoutStatus: "Pending" },
-  { outletName: "d'roasting Tebet", brand: "d'roasting", area: "Jakarta", ownershipScheme: "Company + Investor", investorName: investorNames[3], companyShare: 0.5, investorShare: 0.4, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 720000000, grossSales: 690000000, netSales: 648000000, cogs: 368000000, opex: 96500000, royalty: 19440000, managementFee: 12960000, payoutStatus: "Paid" },
-  { outletName: "d'chicken Jatiwaringin", brand: "d'chicken", area: "Bekasi", ownershipScheme: "Full Franchisee", investorName: investorNames[2], companyShare: 0.1, investorShare: 0, franchiseeShare: 0.8, operatorShare: 0.1, capitalContribution: 520000000, grossSales: 615000000, netSales: 575000000, cogs: 360000000, opex: 89000000, royalty: 17250000, managementFee: 11500000, payoutStatus: "Paid" },
-  { outletName: "d'besto Cikarang Selatan", brand: "d'besto chicken n burger", area: "Bekasi", ownershipScheme: "Company + Investor", investorName: investorNames[4], companyShare: 0.6, investorShare: 0.3, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 880000000, grossSales: 505000000, netSales: 468000000, cogs: 314000000, opex: 137000000, royalty: 14040000, managementFee: 9360000, payoutStatus: "Hold" },
-  { outletName: "Lazatto Cikampek", brand: "Lazatto chicken n burger", area: "Karawang", ownershipScheme: "Full Franchisee", investorName: investorNames[5], companyShare: 0.08, investorShare: 0, franchiseeShare: 0.82, operatorShare: 0.1, capitalContribution: 485000000, grossSales: 579000000, netSales: 541000000, cogs: 347000000, opex: 81000000, royalty: 16230000, managementFee: 10820000, payoutStatus: "Paid" },
-  { outletName: "Lazatto Karawang Barat", brand: "Lazatto chicken n burger", area: "Karawang", ownershipScheme: "Group + Non-Group", investorName: investorNames[7], companyShare: 0.35, investorShare: 0.35, franchiseeShare: 0.2, operatorShare: 0.1, capitalContribution: 640000000, grossSales: 458000000, netSales: 426000000, cogs: 293000000, opex: 130000000, royalty: 12780000, managementFee: 8520000, payoutStatus: "Hold" },
-  { outletName: "d'roasting Tembalang", brand: "d'roasting", area: "Semarang", ownershipScheme: "Full Franchisee", investorName: investorNames[8], companyShare: 0.08, investorShare: 0, franchiseeShare: 0.82, operatorShare: 0.1, capitalContribution: 510000000, grossSales: 548000000, netSales: 512000000, cogs: 296000000, opex: 86500000, royalty: 15360000, managementFee: 10240000, payoutStatus: "Paid" },
-  { outletName: "d'Sruput Simpang Lima", brand: "d'Sruput", area: "Semarang", ownershipScheme: "Full Franchisee", investorName: investorNames[9], companyShare: 0.08, investorShare: 0, franchiseeShare: 0.82, operatorShare: 0.1, capitalContribution: 260000000, grossSales: 392000000, netSales: 370000000, cogs: 184000000, opex: 80500000, royalty: 11100000, managementFee: 7400000, payoutStatus: "Pending" },
-  { outletName: "d'besto Kenjeran", brand: "d'besto chicken n burger", area: "Surabaya", ownershipScheme: "Full Company", investorName: investorNames[0], companyShare: 0.9, investorShare: 0, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 860000000, grossSales: 716000000, netSales: 668000000, cogs: 413000000, opex: 113000000, royalty: 20040000, managementFee: 13360000, payoutStatus: "Paid" },
-  { outletName: "d'bakso Manyar", brand: "d'bakso", area: "Surabaya", ownershipScheme: "Company + Investor + Operator", investorName: investorNames[6], companyShare: 0.45, investorShare: 0.35, franchiseeShare: 0, operatorShare: 0.2, capitalContribution: 560000000, grossSales: 415000000, netSales: 392000000, cogs: 236000000, opex: 72000000, royalty: 11760000, managementFee: 7840000, payoutStatus: "Pending" },
+  { outletName: "d'besto Kelapa Gading", brand: "d'besto chicken n burger", area: "Barat", ownershipScheme: "Company + Investor", investorName: investorNames[1], companyShare: 0.55, investorShare: 0.35, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 950000000, grossSales: 742000000, netSales: 691000000, cogs: 439000000, opex: 110000000, royalty: 20730000, managementFee: 13820000, payoutStatus: "Pending" },
+  { outletName: "d'roasting Tebet", brand: "d'roasting", area: "Barat", ownershipScheme: "Company + Investor", investorName: investorNames[3], companyShare: 0.5, investorShare: 0.4, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 720000000, grossSales: 690000000, netSales: 648000000, cogs: 368000000, opex: 96500000, royalty: 19440000, managementFee: 12960000, payoutStatus: "Paid" },
+  { outletName: "d'chicken Jatiwaringin", brand: "d'chicken", area: "Barat", ownershipScheme: "Full Franchisee", investorName: investorNames[2], companyShare: 0.1, investorShare: 0, franchiseeShare: 0.8, operatorShare: 0.1, capitalContribution: 520000000, grossSales: 615000000, netSales: 575000000, cogs: 360000000, opex: 89000000, royalty: 17250000, managementFee: 11500000, payoutStatus: "Paid" },
+  { outletName: "d'besto Cikarang Selatan", brand: "d'besto chicken n burger", area: "Barat", ownershipScheme: "Company + Investor", investorName: investorNames[4], companyShare: 0.6, investorShare: 0.3, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 880000000, grossSales: 505000000, netSales: 468000000, cogs: 314000000, opex: 137000000, royalty: 14040000, managementFee: 9360000, payoutStatus: "Hold" },
+  { outletName: "Lazatto Cikampek", brand: "Lazatto chicken n burger", area: "Barat", ownershipScheme: "Full Franchisee", investorName: investorNames[5], companyShare: 0.08, investorShare: 0, franchiseeShare: 0.82, operatorShare: 0.1, capitalContribution: 485000000, grossSales: 579000000, netSales: 541000000, cogs: 347000000, opex: 81000000, royalty: 16230000, managementFee: 10820000, payoutStatus: "Paid" },
+  { outletName: "Lazatto Karawang Barat", brand: "Lazatto chicken n burger", area: "Barat", ownershipScheme: "Group + Non-Group", investorName: investorNames[7], companyShare: 0.35, investorShare: 0.35, franchiseeShare: 0.2, operatorShare: 0.1, capitalContribution: 640000000, grossSales: 458000000, netSales: 426000000, cogs: 293000000, opex: 130000000, royalty: 12780000, managementFee: 8520000, payoutStatus: "Hold" },
+  { outletName: "d'roasting Tembalang", brand: "d'roasting", area: "Tengah", ownershipScheme: "Full Franchisee", investorName: investorNames[8], companyShare: 0.08, investorShare: 0, franchiseeShare: 0.82, operatorShare: 0.1, capitalContribution: 510000000, grossSales: 548000000, netSales: 512000000, cogs: 296000000, opex: 86500000, royalty: 15360000, managementFee: 10240000, payoutStatus: "Paid" },
+  { outletName: "d'Sruput Simpang Lima", brand: "d'Sruput", area: "Tengah", ownershipScheme: "Full Franchisee", investorName: investorNames[9], companyShare: 0.08, investorShare: 0, franchiseeShare: 0.82, operatorShare: 0.1, capitalContribution: 260000000, grossSales: 392000000, netSales: 370000000, cogs: 184000000, opex: 80500000, royalty: 11100000, managementFee: 7400000, payoutStatus: "Pending" },
+  { outletName: "d'besto Kenjeran", brand: "d'besto chicken n burger", area: "Timur", ownershipScheme: "Full Company", investorName: investorNames[0], companyShare: 0.9, investorShare: 0, franchiseeShare: 0, operatorShare: 0.1, capitalContribution: 860000000, grossSales: 716000000, netSales: 668000000, cogs: 413000000, opex: 113000000, royalty: 20040000, managementFee: 13360000, payoutStatus: "Paid" },
+  { outletName: "d'bakso Manyar", brand: "d'bakso", area: "Timur", ownershipScheme: "Company + Investor + Operator", investorName: investorNames[6], companyShare: 0.45, investorShare: 0.35, franchiseeShare: 0, operatorShare: 0.2, capitalContribution: 560000000, grossSales: 415000000, netSales: 392000000, cogs: 236000000, opex: 72000000, royalty: 11760000, managementFee: 7840000, payoutStatus: "Pending" },
 ];
 
 const profitSharingRows = rawProfitRows.map((row) => {
@@ -959,26 +957,26 @@ const profitSharingRows = rawProfitRows.map((row) => {
 });
 
 const alerts = [
-  { id: "ALT-001", category: "Stock Leakage", severity: "Critical", area: "Karawang", entity: "Stockist Karawang Barat", issue: "Stock variance ayam frozen 5,6% setelah DO malam", estimatedLoss: 16480000, recommendedAction: "Freeze adjustment manual, lakukan stock opname dan audit CCTV loading dock", pic: "Head of Warehouse", sla: "6 jam", status: "Escalated" },
-  { id: "ALT-002", category: "Cash Leakage", severity: "Critical", area: "Jakarta", entity: "d'chicken Grogol", issue: "Cash closing minus Rp4,4 juta dan void 1,7%", estimatedLoss: 4400000, recommendedAction: "Lock user kasir, audit shift, rekonsiliasi struk void", pic: "Internal Audit", sla: "4 jam", status: "Investigating" },
-  { id: "ALT-003", category: "Production Leakage", severity: "High", area: "Karawang", entity: "Rumah Produksi Karawang", issue: "Yield aktual 89,4% vs standar 93,8%", estimatedLoss: 32600000, recommendedAction: "Audit input-output batch, cek trimming dan reject reason", pic: "Production Manager", sla: "12 jam", status: "Open" },
-  { id: "ALT-004", category: "Logistics Leakage", severity: "High", area: "Karawang", entity: "Route Karawang-Cikampek", issue: "DO ayam 9-cut kurang 48 kg di outlet", estimatedLoss: 1536000, recommendedAction: "Bandingkan surat jalan, timbangan, dan POD outlet", pic: "Logistics SPV", sla: "8 jam", status: "Investigating" },
-  { id: "ALT-005", category: "Finance Leakage", severity: "High", area: "Bekasi", entity: "d'besto Cikarang Selatan", issue: "Settlement overdue dan rugi 2 bulan berturut-turut", estimatedLoss: 21800000, recommendedAction: "Hold profit sharing, review cash bank, aktifkan visit auditor", pic: "Finance Controller", sla: "1 hari", status: "Escalated" },
-  { id: "ALT-006", category: "Cash Leakage", severity: "High", area: "Karawang", entity: "Lazatto Karawang Barat", issue: "Diskon supervisor 4,2x lebih tinggi dari rata-rata area", estimatedLoss: 7600000, recommendedAction: "Review approval promo dan user supervisor", pic: "Area Manager", sla: "1 hari", status: "Open" },
-  { id: "ALT-007", category: "Stock Leakage", severity: "Medium", area: "Bekasi", entity: "Stockist Bekasi Jatiasih", issue: "Pemakaian saus tidak sesuai sales menu sebesar 2,7%", estimatedLoss: 3250000, recommendedAction: "Cross-check recipe usage vs POS menu mix", pic: "Inventory Control", sla: "2 hari", status: "Open" },
-  { id: "ALT-008", category: "Production Leakage", severity: "Medium", area: "Bekasi", entity: "Rumah Produksi Bekasi", issue: "QC fail meningkat menjadi 88 batch item", estimatedLoss: 8700000, recommendedAction: "Cek suhu chiller bahan masuk dan supplier lot", pic: "QC Lead", sla: "1 hari", status: "Investigating" },
-  { id: "ALT-009", category: "Logistics Leakage", severity: "Medium", area: "Surabaya", entity: "Route Waru-Rungkut", issue: "POD belum diunggah >18 jam untuk 7 DO", estimatedLoss: 0, recommendedAction: "Suspend closing route sampai POD lengkap", pic: "Transport Admin", sla: "8 jam", status: "Open" },
-  { id: "ALT-010", category: "Finance Leakage", severity: "Medium", area: "Semarang", entity: "Lazatto Ungaran", issue: "Outlet nonaktif masih memiliki AR royalty", estimatedLoss: 14300000, recommendedAction: "Set status hold dan kirim surat tagihan", pic: "AR Team", sla: "3 hari", status: "Open" },
-  { id: "ALT-011", category: "Stock Leakage", severity: "High", area: "Bekasi", entity: "d'bakso Bekasi Timur", issue: "Stok minus daging bakso saat closing", estimatedLoss: 5800000, recommendedAction: "Audit penerimaan vs produksi bakso harian", pic: "Area Inventory", sla: "1 hari", status: "Investigating" },
-  { id: "ALT-012", category: "Cash Leakage", severity: "Medium", area: "Surabaya", entity: "d'Sruput Surabaya Rungkut", issue: "Setoran terlambat 2 hari berturut-turut", estimatedLoss: 760000, recommendedAction: "Rekonsiliasi rekening penampung dan bukti setor", pic: "Finance Area", sla: "1 hari", status: "Open" },
-  { id: "ALT-013", category: "Production Leakage", severity: "Low", area: "Jakarta", entity: "Rumah Produksi Jakarta", issue: "Reject produk naik 0,4% dari standar", estimatedLoss: 1250000, recommendedAction: "Monitor batch berikutnya", pic: "QC Jakarta", sla: "3 hari", status: "Open" },
-  { id: "ALT-014", category: "Logistics Leakage", severity: "High", area: "Bekasi", entity: "Route Bekasi-Cikarang", issue: "Packaging rusak 24 karton saat diterima outlet", estimatedLoss: 3360000, recommendedAction: "Klaim driver/vendor dan periksa loading SOP", pic: "Logistics Manager", sla: "1 hari", status: "Escalated" },
-  { id: "ALT-015", category: "Finance Leakage", severity: "High", area: "Karawang", entity: "Lazatto Karawang Barat", issue: "Margin turun 5,6 poin vs bulan lalu", estimatedLoss: 25600000, recommendedAction: "Audit promo, COGS, dan spoilage", pic: "Business Analyst", sla: "2 hari", status: "Open" },
-  { id: "ALT-016", category: "Stock Leakage", severity: "Medium", area: "Surabaya", entity: "Stockist Surabaya Waru", issue: "Retur outlet naik 37% minggu ini", estimatedLoss: 4200000, recommendedAction: "Review kualitas pengiriman dan handling frozen", pic: "Warehouse SPV", sla: "2 hari", status: "Open" },
-  { id: "ALT-017", category: "Cash Leakage", severity: "Low", area: "Semarang", entity: "d'chicken Banyumanik", issue: "Refund kasir melewati baseline 0,7%", estimatedLoss: 860000, recommendedAction: "Reminder approval refund dan cek CCTV shift malam", pic: "Outlet SPV", sla: "3 hari", status: "Resolved" },
-  { id: "ALT-018", category: "Production Leakage", severity: "Medium", area: "Karawang", entity: "Rumah Produksi Karawang", issue: "Waste produksi 5,2% melewati toleransi", estimatedLoss: 9200000, recommendedAction: "Cek trimming SOP dan kualitas bahan supplier", pic: "Plant Head", sla: "1 hari", status: "Investigating" },
-  { id: "ALT-019", category: "Logistics Leakage", severity: "Low", area: "Jakarta", entity: "Route Jakarta Timur-Bekasi", issue: "3 DO terlambat karena waiting time outlet", estimatedLoss: 0, recommendedAction: "Perbaiki jadwal unloading outlet", pic: "Route Planner", sla: "3 hari", status: "Resolved" },
-  { id: "ALT-020", category: "Finance Leakage", severity: "Critical", area: "Bekasi", entity: "d'bakso Bekasi Timur", issue: "Outlet rugi, cash variance, dan stock variance tinggi bersamaan", estimatedLoss: 31300000, recommendedAction: "Audit terpadu outlet, hold order non-critical, review operator", pic: "Owner Office", sla: "6 jam", status: "Escalated" },
+  { id: "ALT-001", category: "Stock Leakage", severity: "Critical", area: "Barat", entity: "Stockist Karawang Barat", issue: "Stock variance ayam frozen 5,6% setelah DO malam", estimatedLoss: 16480000, recommendedAction: "Freeze adjustment manual, lakukan stock opname dan audit CCTV loading dock", pic: "Head of Warehouse", sla: "6 jam", status: "Escalated" },
+  { id: "ALT-002", category: "Cash Leakage", severity: "Critical", area: "Barat", entity: "d'chicken Grogol", issue: "Cash closing minus Rp4,4 juta dan void 1,7%", estimatedLoss: 4400000, recommendedAction: "Lock user kasir, audit shift, rekonsiliasi struk void", pic: "Internal Audit", sla: "4 jam", status: "Investigating" },
+  { id: "ALT-003", category: "Production Leakage", severity: "High", area: "Timur", entity: "Rumah Produksi Timur", issue: "Yield aktual 89,4% vs standar 93,8%", estimatedLoss: 32600000, recommendedAction: "Audit input-output batch, cek trimming dan reject reason", pic: "Production Manager", sla: "12 jam", status: "Open" },
+  { id: "ALT-004", category: "Logistics Leakage", severity: "High", area: "Barat", entity: "Route Karawang-Cikampek", issue: "DO ayam 9-cut kurang 48 kg di outlet", estimatedLoss: 1536000, recommendedAction: "Bandingkan surat jalan, timbangan, dan POD outlet", pic: "Logistics SPV", sla: "8 jam", status: "Investigating" },
+  { id: "ALT-005", category: "Finance Leakage", severity: "High", area: "Barat", entity: "d'besto Cikarang Selatan", issue: "Settlement overdue dan rugi 2 bulan berturut-turut", estimatedLoss: 21800000, recommendedAction: "Hold profit sharing, review cash bank, aktifkan visit auditor", pic: "Finance Controller", sla: "1 hari", status: "Escalated" },
+  { id: "ALT-006", category: "Cash Leakage", severity: "High", area: "Barat", entity: "Lazatto Karawang Barat", issue: "Diskon supervisor 4,2x lebih tinggi dari rata-rata area", estimatedLoss: 7600000, recommendedAction: "Review approval promo dan user supervisor", pic: "Area Manager", sla: "1 hari", status: "Open" },
+  { id: "ALT-007", category: "Stock Leakage", severity: "Medium", area: "Barat", entity: "Stockist Bekasi Jatiasih", issue: "Pemakaian saus tidak sesuai sales menu sebesar 2,7%", estimatedLoss: 3250000, recommendedAction: "Cross-check recipe usage vs POS menu mix", pic: "Inventory Control", sla: "2 hari", status: "Open" },
+  { id: "ALT-008", category: "Production Leakage", severity: "Medium", area: "Tengah", entity: "Rumah Produksi Tengah", issue: "QC fail meningkat menjadi 88 batch item", estimatedLoss: 8700000, recommendedAction: "Cek suhu chiller bahan masuk dan supplier lot", pic: "QC Lead", sla: "1 hari", status: "Investigating" },
+  { id: "ALT-009", category: "Logistics Leakage", severity: "Medium", area: "Timur", entity: "Route Waru-Rungkut", issue: "POD belum diunggah >18 jam untuk 7 DO", estimatedLoss: 0, recommendedAction: "Suspend closing route sampai POD lengkap", pic: "Transport Admin", sla: "8 jam", status: "Open" },
+  { id: "ALT-010", category: "Finance Leakage", severity: "Medium", area: "Tengah", entity: "Lazatto Ungaran", issue: "Outlet nonaktif masih memiliki AR royalty", estimatedLoss: 14300000, recommendedAction: "Set status hold dan kirim surat tagihan", pic: "AR Team", sla: "3 hari", status: "Open" },
+  { id: "ALT-011", category: "Stock Leakage", severity: "High", area: "Barat", entity: "d'bakso Bekasi Timur", issue: "Stok minus daging bakso saat closing", estimatedLoss: 5800000, recommendedAction: "Audit penerimaan vs produksi bakso harian", pic: "Area Inventory", sla: "1 hari", status: "Investigating" },
+  { id: "ALT-012", category: "Cash Leakage", severity: "Medium", area: "Timur", entity: "d'Sruput Surabaya Rungkut", issue: "Setoran terlambat 2 hari berturut-turut", estimatedLoss: 760000, recommendedAction: "Rekonsiliasi rekening penampung dan bukti setor", pic: "Finance Area", sla: "1 hari", status: "Open" },
+  { id: "ALT-013", category: "Production Leakage", severity: "Low", area: "Barat", entity: "Rumah Produksi Barat", issue: "Reject produk naik 0,4% dari standar", estimatedLoss: 1250000, recommendedAction: "Monitor batch berikutnya", pic: "QC Barat", sla: "3 hari", status: "Open" },
+  { id: "ALT-014", category: "Logistics Leakage", severity: "High", area: "Barat", entity: "Route Bekasi-Cikarang", issue: "Packaging rusak 24 karton saat diterima outlet", estimatedLoss: 3360000, recommendedAction: "Klaim driver/vendor dan periksa loading SOP", pic: "Logistics Manager", sla: "1 hari", status: "Escalated" },
+  { id: "ALT-015", category: "Finance Leakage", severity: "High", area: "Barat", entity: "Lazatto Karawang Barat", issue: "Margin turun 5,6 poin vs bulan lalu", estimatedLoss: 25600000, recommendedAction: "Audit promo, COGS, dan spoilage", pic: "Business Analyst", sla: "2 hari", status: "Open" },
+  { id: "ALT-016", category: "Stock Leakage", severity: "Medium", area: "Timur", entity: "Stockist Surabaya Waru", issue: "Retur outlet naik 37% minggu ini", estimatedLoss: 4200000, recommendedAction: "Review kualitas pengiriman dan handling frozen", pic: "Warehouse SPV", sla: "2 hari", status: "Open" },
+  { id: "ALT-017", category: "Cash Leakage", severity: "Low", area: "Tengah", entity: "d'chicken Banyumanik", issue: "Refund kasir melewati baseline 0,7%", estimatedLoss: 860000, recommendedAction: "Reminder approval refund dan cek CCTV shift malam", pic: "Outlet SPV", sla: "3 hari", status: "Resolved" },
+  { id: "ALT-018", category: "Production Leakage", severity: "Medium", area: "Timur", entity: "Rumah Produksi Timur", issue: "Waste produksi 5,2% melewati toleransi", estimatedLoss: 9200000, recommendedAction: "Cek trimming SOP dan kualitas bahan supplier", pic: "Plant Head", sla: "1 hari", status: "Investigating" },
+  { id: "ALT-019", category: "Logistics Leakage", severity: "Low", area: "Barat", entity: "Route Jakarta Timur-Bekasi", issue: "3 DO terlambat karena waiting time outlet", estimatedLoss: 0, recommendedAction: "Perbaiki jadwal unloading outlet", pic: "Route Planner", sla: "3 hari", status: "Resolved" },
+  { id: "ALT-020", category: "Finance Leakage", severity: "Critical", area: "Barat", entity: "d'bakso Bekasi Timur", issue: "Outlet rugi, cash variance, dan stock variance tinggi bersamaan", estimatedLoss: 31300000, recommendedAction: "Audit terpadu outlet, hold order non-critical, review operator", pic: "Owner Office", sla: "6 jam", status: "Escalated" },
 ];
 
 const menuItems = [
@@ -1027,6 +1025,204 @@ function formatRatio(value, digits = 1) {
 
 function sum(rows, key) {
   return rows.reduce((total, row) => total + (Number(row[key]) || 0), 0);
+}
+
+const dateRangeConfig = {
+  "Hari Ini": {
+    periodLabel: "Hari ini",
+    vsLabel: "vs kemarin",
+    transactionDays: 1,
+    getGross: (rows) => sum(rows, "dailySales"),
+    trend: [
+      { date: "07:00", weight: 0.04 },
+      { date: "09:00", weight: 0.08 },
+      { date: "11:00", weight: 0.16 },
+      { date: "13:00", weight: 0.24 },
+      { date: "15:00", weight: 0.2 },
+      { date: "17:00", weight: 0.18 },
+      { date: "20:00", weight: 0.1 },
+    ],
+  },
+  "7 Hari Terakhir": {
+    periodLabel: "7 hari terakhir",
+    vsLabel: "vs 7 hari sebelumnya",
+    transactionDays: 7,
+    getGross: (rows) => sum(rows, "dailySales") * 7.04,
+    trend: salesTrend7d.map((day) => ({ date: day.date, weight: day.gross / sum(salesTrend7d, "gross") })),
+  },
+  "Bulan Ini": {
+    periodLabel: "Bulan ini",
+    vsLabel: "vs Apr",
+    transactionDays: 26,
+    getGross: (rows) => sum(rows, "monthlySales"),
+    trend: [
+      { date: "Minggu 1", weight: 0.2 },
+      { date: "Minggu 2", weight: 0.23 },
+      { date: "Minggu 3", weight: 0.25 },
+      { date: "Minggu 4", weight: 0.21 },
+      { date: "MTD", weight: 0.11 },
+    ],
+  },
+  "Q2 2026": {
+    periodLabel: "Q2 2026",
+    vsLabel: "vs Q1 2026",
+    transactionDays: 78,
+    getGross: (rows) => sum(rows, "monthlySales") * 3.08,
+    trend: [
+      { date: "Apr '26", weight: 0.31 },
+      { date: "Mei '26", weight: 0.34 },
+      { date: "Jun Est.", weight: 0.35 },
+    ],
+  },
+};
+
+function shortBrandName(brand) {
+  if (brand.includes("d'besto")) return "d'besto";
+  if (brand.includes("Lazatto")) return "Lazatto";
+  return brand;
+}
+
+function getDateRangeConfig(dateRange) {
+  return dateRangeConfig[dateRange] || dateRangeConfig["Bulan Ini"];
+}
+
+function getPeriodGross(outlet, dateRange) {
+  if (dateRange === "Hari Ini") return outlet.dailySales;
+  if (dateRange === "7 Hari Terakhir") return outlet.dailySales * 7.04;
+  if (dateRange === "Q2 2026") return outlet.monthlySales * 3.08;
+  return outlet.monthlySales;
+}
+
+function getScopeLabel(filters) {
+  const parts = [filters.dateRange];
+  if (filters.area !== "Semua Wilayah") parts.push(`Wilayah ${filters.area}`);
+  if (filters.brand !== "Semua Brand") parts.push(shortBrandName(filters.brand));
+  if (filters.search.trim()) parts.push(`"${filters.search.trim()}"`);
+  return parts.join(" · ");
+}
+
+function filterRowsByDashboardScope(rows, filters) {
+  const q = filters.search.toLowerCase().trim();
+  return rows.filter((row) => {
+    const matchArea = filters.area === "Semua Wilayah" || row.area === filters.area;
+    const matchBrand = !row.brand || filters.brand === "Semua Brand" || row.brand === filters.brand;
+    const searchable = `${row.name || ""} ${row.outletName || ""} ${row.entity || ""} ${row.issue || ""} ${row.category || ""} ${row.area || ""} ${row.brand || ""} ${row.id || ""}`.toLowerCase();
+    const matchSearch = !q || searchable.includes(q);
+    return matchArea && matchBrand && matchSearch;
+  });
+}
+
+function buildBrandSummary(rows, dateRange) {
+  const grouped = brands.map((brand) => {
+    const brandRows = rows.filter((outlet) => outlet.brand === brand);
+    const sales = brandRows.reduce((total, outlet) => total + getPeriodGross(outlet, dateRange), 0);
+    return {
+      brand: shortBrandName(brand),
+      sales,
+      outlets: brandRows.length,
+      margin: brandRows.length ? sum(brandRows, "grossMargin") / brandRows.length * 100 : 0,
+    };
+  }).filter((row) => row.sales > 0 || row.outlets > 0);
+
+  return grouped.length ? grouped : [{ brand: "Tidak ada data", sales: 0, outlets: 0, margin: 0 }];
+}
+
+function buildAreaSummary(rows, dateRange) {
+  const grouped = areas.map((area) => {
+    const areaRows = rows.filter((outlet) => outlet.area === area);
+    const baseSla = areaSales.find((item) => item.area === area)?.sla || deliveryStats.onTimeDelivery;
+    const riskPenalty = areaRows.filter((outlet) => ["High Risk", "Audit Required"].includes(outlet.status)).length * 0.45;
+    return {
+      area,
+      sales: areaRows.reduce((total, outlet) => total + getPeriodGross(outlet, dateRange), 0),
+      outlets: areaRows.length,
+      sla: Math.max(84, baseSla - riskPenalty),
+    };
+  }).filter((row) => row.sales > 0 || row.outlets > 0);
+
+  return grouped.length ? grouped : [{ area: "Tidak ada data", sales: 0, outlets: 0, sla: 0 }];
+}
+
+function buildTrendSummary(rows, dateRange, grossSales, netSales) {
+  const config = getDateRangeConfig(dateRange);
+  const totalWeight = config.trend.reduce((total, point) => total + point.weight, 0) || 1;
+  const transactionBase = sum(rows, "transactions") * config.transactionDays;
+
+  return config.trend.map((point, index) => {
+    const normalizedWeight = point.weight / totalWeight;
+    const swing = 0.95 + ((index % 3) * 0.035);
+    return {
+      date: point.date,
+      gross: Math.round(grossSales * normalizedWeight * swing),
+      net: Math.round(netSales * normalizedWeight * swing),
+      trx: Math.round(transactionBase * normalizedWeight * swing),
+    };
+  });
+}
+
+function buildExecutiveSummary(rows, filters) {
+  const config = getDateRangeConfig(filters.dateRange);
+  const activeRows = rows.filter((outlet) => outlet.active);
+  const areaData = buildAreaSummary(rows, filters.dateRange);
+  const ownershipData = ownershipSchemes
+    .map((scheme) => ({ name: scheme, value: rows.filter((outlet) => outlet.ownership === scheme).length }))
+    .filter((row) => row.value > 0);
+  const nationalShare = rows.length / Math.max(outlets.length, 1);
+  const activeNationalShare = activeRows.length / Math.max(outlets.filter((outlet) => outlet.active).length, 1);
+  const nationalOutlets = Math.round(1300 * nationalShare);
+  const activeOutlets = Math.round(1284 * activeNationalShare);
+  const periodGross = config.getGross(rows);
+  const netSales = periodGross * 0.922;
+  const avgMargin = rows.length ? sum(rows, "grossMargin") / rows.length : 0;
+  const grossProfit = periodGross * avgMargin;
+  const periodScale = periodGross / Math.max(sum(outlets, "monthlySales"), 1);
+  const netProfit = rows.reduce((total, outlet) => total + outlet.netProfit * (getPeriodGross(outlet, filters.dateRange) / Math.max(outlet.monthlySales || outlet.dailySales || 1, 1)), 0);
+  const filteredProfitRows = filterRowsByDashboardScope(profitSharingRows, filters);
+  const filteredAlerts = filterRowsByDashboardScope(alerts, { ...filters, brand: "Semua Brand" });
+  const openHighAlerts = filteredAlerts.filter((alert) => ["Critical", "High"].includes(alert.severity) && alert.status !== "Resolved");
+  const escalatedAlerts = filteredAlerts.filter((alert) => alert.status === "Escalated").length;
+  const deliverySla = areaData.reduce((total, area) => total + area.sla, 0) / Math.max(areaData.length, 1);
+  const growthBase = 3.4 + rows.length * 0.18 + (filters.dateRange === "Q2 2026" ? 2.6 : filters.dateRange === "Hari Ini" ? -1.1 : 0);
+
+  const topOutlets = [...rows]
+    .map((outlet) => ({ ...outlet, periodSales: getPeriodGross(outlet, filters.dateRange) }))
+    .sort((a, b) => b.periodSales - a.periodSales)
+    .slice(0, 10);
+
+  const bottomOutlets = [...rows].sort((a, b) => b.riskScore - a.riskScore).slice(0, 10);
+
+  return {
+    scopeLabel: getScopeLabel(filters),
+    periodLabel: config.periodLabel,
+    vsLabel: config.vsLabel,
+    activeOutlets,
+    inactiveOutlets: Math.max(nationalOutlets - activeOutlets, 0),
+    sampleActive: activeRows.length,
+    sampleTotal: rows.length,
+    todayRevenue: sum(activeRows, "dailySales"),
+    monthRevenue: periodGross,
+    grossProfit,
+    netProfit,
+    cogsRatio: 100 - (avgMargin * 100),
+    wasteRatio: sum(activeRows, "waste") / Math.max(activeRows.length, 1),
+    stockVarianceRatio: sum(activeRows, "stockVariance") / Math.max(activeRows.length, 1),
+    settlementPending: rows.filter((outlet) => outlet.settlement !== "Settled").reduce((total, outlet) => total + Math.abs(outlet.cashVariance) + 32000000, 0),
+    franchiseReceivable: Math.round(financeSummary.franchiseReceivable * Math.max(periodScale, 0)),
+    deliverySLA: deliverySla || 0,
+    profitSharingPayable: filteredProfitRows.filter((row) => row.payoutStatus === "Pending").reduce((total, row) => total + row.distributableProfit * Math.max(periodScale, 0.08), 0),
+    highRiskAlerts: openHighAlerts.length,
+    escalatedAlerts,
+    growthLabel: `${growthBase >= 0 ? "+" : ""}${growthBase.toLocaleString("id-ID", { maximumFractionDigits: 1 })}%`,
+    topOutlets,
+    bottomOutlets,
+    trendData: buildTrendSummary(rows, filters.dateRange, periodGross, netSales),
+    brandData: buildBrandSummary(rows, filters.dateRange),
+    areaData,
+    ownershipData: ownershipData.length ? ownershipData : [{ name: "Tidak ada data", value: 1 }],
+    priorityAlerts: filteredAlerts
+      .sort((a, b) => ({ Critical: 4, High: 3, Medium: 2, Low: 1 }[b.severity] - { Critical: 4, High: 3, Medium: 2, Low: 1 }[a.severity]))
+      .slice(0, 6),
+  };
 }
 
 function getStatusStyle(status) {
@@ -1263,7 +1459,7 @@ function Sidebar({ activePage, setActivePage }) {
         <div className="border-t border-white/10 p-4">
           <div className="dbesto-focus-card rounded-2xl p-4">
             <p className="text-sm font-bold">Focus Hari Ini</p>
-            <p className="mt-1 text-xs leading-5 text-slate-300">Audit outlet rugi, stock variance Karawang, settlement overdue Bekasi.</p>
+            <p className="mt-1 text-xs leading-5 text-slate-300">Audit outlet rugi, stock variance Barat, settlement overdue Barat.</p>
           </div>
         </div>
       </div>
@@ -1331,11 +1527,11 @@ function Header({ title, filters, setFilters, highRiskCount, onOpenAlerts }) {
             onChange={(event) => {
               const value = event.target.value;
               setFilters((prev) => ({ ...prev, area: value }));
-              showFilterToast("Area", value);
+              showFilterToast("Wilayah", value);
             }}
             className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           >
-            <option>Semua Area</option>
+            <option>Semua Wilayah</option>
             {areas.map((area) => <option key={area}>{area}</option>)}
           </select>
           <select
@@ -1353,7 +1549,7 @@ function Header({ title, filters, setFilters, highRiskCount, onOpenAlerts }) {
           <input
             value={filters.search}
             onChange={(event) => setFilters((prev) => ({ ...prev, search: event.target.value }))}
-            placeholder="Cari outlet / area..."
+            placeholder="Cari outlet / wilayah..."
             className="min-w-[220px] rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
           />
           <button type="button" onClick={onOpenAlerts} className="dbesto-alert-button relative rounded-xl px-3 py-2 text-sm font-bold text-white">
@@ -1421,37 +1617,46 @@ function PageSection({ title, subtitle, action, children }) {
 }
 
 function ExecutiveSummary({ filteredOutlets, summary, setActivePage }) {
-  const topOutlets = [...filteredOutlets].sort((a, b) => b.monthlySales - a.monthlySales).slice(0, 10);
-  const bottomOutlets = [...filteredOutlets].sort((a, b) => b.riskScore - a.riskScore).slice(0, 10);
-  const ownershipData = ownershipSchemes.map((scheme) => ({ name: scheme, value: outlets.filter((outlet) => outlet.ownership === scheme).length }));
-  const priorityAlerts = [...alerts].sort((a, b) => ({ Critical: 4, High: 3, Medium: 2, Low: 1 }[b.severity] - { Critical: 4, High: 3, Medium: 2, Low: 1 }[a.severity])).slice(0, 6);
+  const trendData = summary.trendData || [];
+  const brandData = summary.brandData || [];
+  const areaData = summary.areaData || [];
+  const ownershipData = summary.ownershipData || [{ name: "Tidak ada data", value: 1 }];
+  const priorityAlerts = summary.priorityAlerts || [];
 
   return (
     <div className="space-y-6">
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Scope data aktif</p>
+        <p className="mt-1 text-sm font-semibold text-slate-900">{summary.scopeLabel}</p>
+        <p className="mt-1 text-xs text-slate-500">
+          Sample berubah: {summary.sampleTotal} outlet dummy, {summary.sampleActive} aktif. Angka nasional diekstrapolasi dari scope filter ini.
+        </p>
+      </div>
+
       <MetricStrip
         items={[
-          { title: "Total Outlet Aktif", value: formatNumber(summary.activeOutlets), subtitle: "Dari 1.300 outlet nasional", delta: "+24 outlet YTD", tone: "good" },
-          { title: "Outlet Nonaktif", value: formatNumber(summary.inactiveOutlets), subtitle: "Perlu review area", delta: "-3 vs Apr", tone: "warn" },
-          { title: "Omzet Hari Ini", value: formatShortRp(summary.todayRevenue), subtitle: "POS gross sales", delta: "+6,4% vs kemarin" },
-          { title: "Omzet Bulan Ini", value: formatShortRp(summary.monthRevenue), subtitle: "MTD gross sales", delta: "+8,6% vs Apr" },
-          { title: "Growth vs Bulan Lalu", value: "+8,6%", subtitle: "Like-for-like outlet", delta: "+2,1 poin" },
-          { title: "Gross Profit", value: formatShortRp(summary.grossProfit), subtitle: "Estimasi GP MTD", delta: "+7,9%" },
-          { title: "Net Profit", value: formatShortRp(summary.netProfit), subtitle: "Outlet sample + extrapolasi", delta: "+5,2%" },
-          { title: "COGS Ratio", value: formatPct(summary.cogsRatio), subtitle: "Target ≤ 62%", delta: "-0,8 poin", tone: "good" },
-          { title: "Waste Ratio", value: formatPct(summary.wasteRatio), subtitle: "Avg outlet sample", delta: "+0,4 poin", tone: summary.wasteRatio > 3.2 ? "warn" : "good" },
-          { title: "Stock Variance Ratio", value: formatPct(summary.stockVarianceRatio), subtitle: "Avg outlet sample", delta: "+0,7 poin", tone: "warn" },
-          { title: "Cash Settlement Pending", value: formatShortRp(summary.settlementPending), subtitle: "Pending + overdue", delta: "+12,5%", tone: "warn" },
-          { title: "Piutang Franchisee", value: formatShortRp(summary.franchiseReceivable), subtitle: "AR outstanding", delta: "+4,8%", tone: "warn" },
-          { title: "Delivery SLA", value: formatPct(summary.deliverySLA), subtitle: "On-time delivery", delta: "-1,2 poin", tone: "warn" },
-          { title: "Profit Sharing Payable", value: formatShortRp(summary.profitSharingPayable), subtitle: "Pending payout", delta: "+3,1%" },
-          { title: "High Risk Alert", value: summary.highRiskAlerts, subtitle: "Critical + High open", delta: "5 escalated", tone: "dark" },
+          { title: "Total Outlet Aktif", value: formatNumber(summary.activeOutlets), subtitle: `${summary.sampleActive}/${summary.sampleTotal} outlet sample aktif`, delta: "Scope nasional", tone: "good" },
+          { title: "Outlet Nonaktif", value: formatNumber(summary.inactiveOutlets), subtitle: "Estimasi dari filter", delta: summary.inactiveOutlets > 0 ? "Perlu review" : "Tidak ada", tone: summary.inactiveOutlets > 0 ? "warn" : "good" },
+          { title: "Omzet Hari Ini", value: formatShortRp(summary.todayRevenue), subtitle: "POS gross sales aktif", delta: summary.vsLabel },
+          { title: `Omzet ${summary.periodLabel}`, value: formatShortRp(summary.monthRevenue), subtitle: "Gross sales sesuai filter", delta: summary.growthLabel },
+          { title: "Growth Scope", value: summary.growthLabel, subtitle: summary.vsLabel, delta: `${summary.sampleTotal} outlet sample` },
+          { title: "Gross Profit", value: formatShortRp(summary.grossProfit), subtitle: "Estimasi GP scope", delta: summary.growthLabel },
+          { title: "Net Profit", value: formatShortRp(summary.netProfit), subtitle: "Profit outlet terfilter", delta: summary.netProfit < 0 ? "Rugi" : "Profit", tone: summary.netProfit < 0 ? "danger" : "good" },
+          { title: "COGS Ratio", value: formatPct(summary.cogsRatio), subtitle: "Dari margin outlet", delta: summary.cogsRatio <= 62 ? "Di target" : "Di atas target", tone: summary.cogsRatio <= 62 ? "good" : "warn" },
+          { title: "Waste Ratio", value: formatPct(summary.wasteRatio), subtitle: "Avg outlet aktif", delta: summary.wasteRatio > 3 ? "Perlu kontrol" : "Normal", tone: summary.wasteRatio > 3 ? "warn" : "good" },
+          { title: "Stock Variance Ratio", value: formatPct(summary.stockVarianceRatio), subtitle: "Avg outlet aktif", delta: summary.stockVarianceRatio > 3 ? "Audit" : "Normal", tone: summary.stockVarianceRatio > 3 ? "danger" : "good" },
+          { title: "Cash Settlement Pending", value: formatShortRp(summary.settlementPending), subtitle: "Pending + overdue scope", delta: summary.settlementPending > 0 ? "Rekonsiliasi" : "Clear", tone: summary.settlementPending > 0 ? "warn" : "good" },
+          { title: "Piutang Franchisee", value: formatShortRp(summary.franchiseReceivable), subtitle: "AR sesuai scope", delta: summary.periodLabel, tone: "warn" },
+          { title: "Delivery SLA", value: formatPct(summary.deliverySLA), subtitle: "Weighted wilayah", delta: summary.deliverySLA >= 93 ? "Stabil" : "Perlu follow-up", tone: summary.deliverySLA >= 93 ? "good" : "warn" },
+          { title: "Profit Sharing Payable", value: formatShortRp(summary.profitSharingPayable), subtitle: "Pending payout scope", delta: summary.periodLabel },
+          { title: "High Risk Alert", value: summary.highRiskAlerts, subtitle: "Critical + High open", delta: `${summary.escalatedAlerts} escalated`, tone: "dark" },
         ]}
       />
 
       <div className="grid gap-4 xl:grid-cols-2">
-        <ChartCard title="Trend Omzet Harian" subtitle="Gross vs net sales 7 hari terakhir">
+        <ChartCard title={`Trend Omzet ${summary.periodLabel}`} subtitle={`Gross vs net sales untuk ${summary.scopeLabel}`}>
           <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={salesTrend7d} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
+            <LineChart data={trendData} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="date" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
@@ -1465,7 +1670,7 @@ function ExecutiveSummary({ filteredOutlets, summary, setActivePage }) {
 
         <ChartCard title="Omzet per Brand" subtitle="Kontribusi gross sales bulan ini">
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={brandSales} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
+            <BarChart data={brandData} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="brand" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
@@ -1475,9 +1680,9 @@ function ExecutiveSummary({ filteredOutlets, summary, setActivePage }) {
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Omzet per Area" subtitle="Area utama DBESTO Group">
+        <ChartCard title="Omzet per Wilayah" subtitle="Wilayah operasional nasional DBESTO Group">
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={areaSales} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
+            <BarChart data={areaData} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
               <XAxis dataKey="area" tickLine={false} axisLine={false} />
               <YAxis tickFormatter={formatShortRp} tickLine={false} axisLine={false} width={80} />
@@ -1503,13 +1708,13 @@ function ExecutiveSummary({ filteredOutlets, summary, setActivePage }) {
       </div>
 
       <div className="grid gap-4 xl:grid-cols-2">
-        <PageSection title="Top 10 Outlet Terbaik" subtitle="Ranking berdasarkan omzet bulanan" action={<Button variant="secondary">Drill-down area</Button>}>
+        <PageSection title="Top 10 Outlet Terbaik" subtitle={`Ranking berdasarkan omzet ${summary.periodLabel}`} action={<Button variant="secondary">Drill-down wilayah</Button>}>
           <DataTable
-            rows={topOutlets}
+            rows={summary.topOutlets}
             columns={[
               { key: "rank", label: "#", render: (_, index) => index + 1 },
               { key: "name", label: "Outlet", render: (row) => <div><p className="font-bold text-slate-900">{row.name}</p><p className="text-xs text-slate-500">{row.area} · {row.brand}</p></div> },
-              { key: "monthlySales", label: "Omzet", render: (row) => formatShortRp(row.monthlySales) },
+              { key: "periodSales", label: "Omzet", render: (row) => formatShortRp(row.periodSales) },
               { key: "grossMargin", label: "GM", render: (row) => formatRatio(row.grossMargin) },
               { key: "status", label: "Status", render: (row) => <StatusBadge status={row.status} /> },
             ]}
@@ -1518,7 +1723,7 @@ function ExecutiveSummary({ filteredOutlets, summary, setActivePage }) {
 
         <PageSection title="Bottom 10 Outlet Bermasalah" subtitle="Prioritas visit/audit berdasarkan risk score" action={<Button variant="danger">Buat Audit Plan</Button>}>
           <DataTable
-            rows={bottomOutlets}
+            rows={summary.bottomOutlets}
             columns={[
               { key: "rank", label: "#", render: (_, index) => index + 1 },
               { key: "name", label: "Outlet", render: (row) => <div><p className="font-bold text-slate-900">{row.name}</p><p className="text-xs text-slate-500">{row.area} · {row.brand}</p></div> },
@@ -1574,7 +1779,7 @@ function SalesRevenue({ filteredOutlets }) {
       <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="font-black text-slate-950">Filter Sales</h2>
-          <p className="text-sm text-slate-500">Tanggal, brand, area, outlet, payment method, dan ownership scheme.</p>
+          <p className="text-sm text-slate-500">Tanggal, brand, wilayah, outlet, payment method, dan ownership scheme.</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <select
@@ -1648,7 +1853,7 @@ function SalesRevenue({ filteredOutlets }) {
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Sales by Area" subtitle="Area revenue dan SLA distribusi">
+        <ChartCard title="Sales by Wilayah" subtitle="Revenue wilayah dan SLA distribusi">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={areaSales}>
               <CartesianGrid strokeDasharray="3 3" stroke={CHART.grid} />
@@ -1999,7 +2204,7 @@ function ProductionColdStorage() {
           { title: "Waste Produksi", value: formatPct(sum(productionHouses, "waste") / productionHouses.length), subtitle: "Target ≤ 3%", delta: "+1,4 poin", tone: "warn" },
           { title: "Cost per Kg", value: formatShortRp(sum(productionHouses, "costPerKg") / productionHouses.length), subtitle: "Avg produksi", delta: "+3,2%", tone: "warn" },
           { title: "Cold Storage Capacity", value: formatPct(sum(productionHouses, "coldStorageCapacity") / productionHouses.length), subtitle: "Avg utilization", delta: "+6,8 poin", tone: "warn" },
-          { title: "Temp Alert", value: "2 site", subtitle: "Di atas threshold", delta: "Bekasi, Karawang", tone: "danger" },
+          { title: "Temp Alert", value: "2 site", subtitle: "Di atas threshold", delta: "Tengah, Timur", tone: "danger" },
           { title: "Produk Siap Kirim", value: `${formatNumber(sum(productionHouses, "readyToShip"))} kg`, subtitle: "Released/available", delta: "Siap DO" },
         ]}
       />
@@ -2043,7 +2248,7 @@ function ProductionColdStorage() {
             rows={qcFailRows}
             columns={[
               { key: "entity", label: "Production House", render: (row) => <span className="font-bold text-slate-900">{row.entity}</span> },
-              { key: "area", label: "Area" },
+              { key: "area", label: "Wilayah" },
               { key: "qcFail", label: "QC Fail", render: (row) => formatNumber(row.qcFail) },
               { key: "reject", label: "Reject", render: (row) => `${formatNumber(row.reject)} kg` },
               { key: "waste", label: "Waste", render: (row) => formatPct(row.waste) },
@@ -2112,7 +2317,7 @@ function LogisticsDelivery() {
           { title: "Cost per Delivery", value: formatShortRp(deliveryStats.costPerDelivery), subtitle: "Avg route cost", delta: "+3,3%" },
           { title: "Cost per Kg", value: formatShortRp(deliveryStats.costPerKg), subtitle: "Logistics cost", delta: "+4,1%", tone: "warn" },
           { title: "Driver Performance", value: "91/100", subtitle: "Avg score", delta: "-2 poin" },
-          { title: "Route Risk", value: "2 route", subtitle: "Karawang, Surabaya", delta: "Audit route", tone: "danger" },
+          { title: "Route Risk", value: "2 route", subtitle: "Barat, Timur", delta: "Audit route", tone: "danger" },
         ]}
       />
 
@@ -2256,7 +2461,7 @@ function FinanceSettlement() {
             rows={cashVarianceRows}
             columns={[
               { key: "outlet", label: "Outlet", render: (row) => <span className="font-bold text-slate-900">{row.outlet}</span> },
-              { key: "area", label: "Area" },
+              { key: "area", label: "Wilayah" },
               { key: "posCash", label: "POS Cash", render: (row) => formatShortRp(row.posCash) },
               { key: "physical", label: "Kas Fisik", render: (row) => formatShortRp(row.physical) },
               { key: "variance", label: "Variance", render: (row) => <span className="font-bold text-red-600">{formatShortRp(row.variance)}</span> },
@@ -2269,7 +2474,7 @@ function FinanceSettlement() {
             rows={lossMakingOutlets}
             columns={[
               { key: "name", label: "Outlet", render: (row) => <span className="font-bold text-slate-900">{row.name}</span> },
-              { key: "area", label: "Area" },
+              { key: "area", label: "Wilayah" },
               { key: "monthlySales", label: "Omzet", render: (row) => formatShortRp(row.monthlySales) },
               { key: "netProfit", label: "Net Profit", render: (row) => <span className="font-bold text-red-600">{formatShortRp(row.netProfit)}</span> },
               { key: "riskScore", label: "Risk", render: (row) => row.riskScore },
@@ -2599,7 +2804,7 @@ function EarlyWarning() {
             { key: "id", label: "ID", render: (row) => <span className="font-bold text-slate-900">{row.id}</span> },
             { key: "severity", label: "Severity", render: (row) => <StatusBadge status={row.severity} /> },
             { key: "category", label: "Category" },
-            { key: "area", label: "Area" },
+            { key: "area", label: "Wilayah" },
             { key: "entity", label: "Entity", render: (row) => <span className="font-bold text-slate-900">{row.entity}</span> },
             { key: "issue", label: "Issue" },
             { key: "estimatedLoss", label: "Est. Loss", render: (row) => formatShortRp(row.estimatedLoss) },
@@ -2617,11 +2822,11 @@ function EarlyWarning() {
 
 function AppShell() {
   const [activePage, setActivePage] = useState("executive");
-  const [filters, setFilters] = useState({ dateRange: "Bulan Ini", area: "Semua Area", brand: "Semua Brand", search: "" });
+  const [filters, setFilters] = useState({ dateRange: "Bulan Ini", area: "Semua Wilayah", brand: "Semua Brand", search: "" });
 
   const filteredOutlets = useMemo(() => {
     return outlets.filter((outlet) => {
-      const matchArea = filters.area === "Semua Area" || outlet.area === filters.area;
+      const matchArea = filters.area === "Semua Wilayah" || outlet.area === filters.area;
       const matchBrand = filters.brand === "Semua Brand" || outlet.brand === filters.brand;
       const q = filters.search.toLowerCase().trim();
       const matchSearch = !q || outlet.name.toLowerCase().includes(q) || outlet.area.toLowerCase().includes(q) || outlet.brand.toLowerCase().includes(q) || outlet.id.toLowerCase().includes(q);
@@ -2629,33 +2834,7 @@ function AppShell() {
     });
   }, [filters]);
 
-  const summary = useMemo(() => {
-    const active = filteredOutlets.filter((outlet) => outlet.active);
-    const todayRevenue = salesTrend7d[salesTrend7d.length - 1].gross;
-    const monthRevenue = financeSummary.posRevenue;
-    const grossProfit = monthRevenue * (1 - 0.612);
-    const netProfit = financeSummary.pnlCompany;
-    const wasteRatio = sum(active, "waste") / Math.max(active.length, 1);
-    const stockVarianceRatio = sum(active, "stockVariance") / Math.max(active.length, 1);
-    const highRiskAlerts = alerts.filter((alert) => ["Critical", "High"].includes(alert.severity) && alert.status !== "Resolved").length;
-    return {
-      activeOutlets: 1284,
-      inactiveOutlets: 16,
-      sampleActive: active.length,
-      todayRevenue,
-      monthRevenue,
-      grossProfit,
-      netProfit,
-      cogsRatio: 61.2,
-      wasteRatio,
-      stockVarianceRatio,
-      settlementPending: financeSummary.settlementPending + financeSummary.settlementOverdue,
-      franchiseReceivable: financeSummary.franchiseReceivable,
-      deliverySLA: deliveryStats.onTimeDelivery,
-      profitSharingPayable: profitSharingRows.filter((row) => row.payoutStatus === "Pending").reduce((total, row) => total + row.distributableProfit, 0),
-      highRiskAlerts,
-    };
-  }, [filteredOutlets]);
+  const summary = useMemo(() => buildExecutiveSummary(filteredOutlets, filters), [filteredOutlets, filters]);
 
   const pageTitle = menuItems.find((item) => item.id === activePage)?.label || "Executive Summary";
   const handleOpenAlerts = () => {
